@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 `;
 
 const SearchInput: FC = () => {
-  const { availableDataForQuerying } = useSearchHook();
+  const { DEFAULT_PLACEHOLDER, availableDataForQuerying } = useSearchHook();
 
   const fuse = useMemo(
     () =>
@@ -33,7 +33,7 @@ const SearchInput: FC = () => {
 
   const [inputItems, setInputItems] = useState(availableDataForQuerying);
 
-  const handleSelectedItemChange = (selectedItem: { "fields": Fields }) => {
+  const handleSelectedItemChange = (selectedItem: { fields: Fields }) => {
     navigate(selectedItem.fields.slug);
   }
 
@@ -61,7 +61,7 @@ const SearchInput: FC = () => {
     <div>
       <label {...getLabelProps()}>Choose an element:</label>
       <div {...getComboboxProps()}>
-        <input {...getInputProps()} />
+        <input {...getInputProps()} placeholder={DEFAULT_PLACEHOLDER} />
         <button
           type="button"
           {...getToggleButtonProps()}
@@ -93,13 +93,6 @@ const SearchInput: FC = () => {
       </ul>
     </div>
   )
-
-
-  // return (
-  //   <StyledContainer className={className}>
-  //     <p>Search input hello</p>
-  //   </StyledContainer>
-  // );
 };
 
 export default SearchInput;

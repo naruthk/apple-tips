@@ -6,7 +6,7 @@ author: Naruth Kongurai
 keyboardCommand: null
 description: Save time by doing this simple shortcut
 source: https://support.apple.com/guide/ipad/use-tabs-in-safari-ipada3308ec5/ipados
-osVersion: iOS14
+osVersion: 14
 ---
 
 If you accidentally closed a tab or want to scroll through a list of recently closed ones, simply touch and hold the New Tab icon (the one that looks like a plus icon), then select from the list.

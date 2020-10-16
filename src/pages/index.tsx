@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import SearchInput from "../components/SearchInput";
+import Filter from "../components/Filter";
 import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
@@ -29,7 +30,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
-  const { availableCategories } = useFilterHook();
+  const { selectedCategories } = useFilterHook();
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
 
@@ -46,8 +47,10 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
       };
     })
     .filter(item => {
+      if (selectedCategories.includes(CATEGORIES_ENUM.ALL)) return true;
+
       const exactLetterCasing = CATEGORIES_ENUM[item.collection.toUpperCase()];
-      return availableCategories.includes(exactLetterCasing);
+      return selectedCategories.includes(exactLetterCasing);
     });
 
   return (
@@ -55,11 +58,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
       <Page>
         <Container>
           <SearchInput />
-          <ul>
-            {availableCategories.map(category => (
-              <li key={category}>{category}</li>
-            ))}
-          </ul>
+          <Filter />
           <ul>
             {articlesListing.map(article => (
               <li key={article.slug}>

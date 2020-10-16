@@ -6,7 +6,7 @@ author: Naruth Kongurai
 keyboardCommand: Command
 description: Works across many supported apps on iOS 14
 source: null
-osVersion: iPadOS14
+osVersion: 14
 ---
 
 For those who are using a Bluetooth-connected keyboard or the Apple Magic Keyboard for iPad, you can press and hold the Command key to reveal the list of commands for the app that you are using.
