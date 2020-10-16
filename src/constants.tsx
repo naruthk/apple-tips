@@ -1,0 +1,10 @@
+const CATEGORIES_ENUM: { [char: string]: string } = {
+  "ALL": "All",
+  "IOS": "iOS",
+  "IPADOS": "iPadOS",
+  "MACOS": "macOS"
+};
+
+const PUBLISHED_CATEGORIES = [CATEGORIES_ENUM.IOS, CATEGORIES_ENUM.IPADOS, CATEGORIES_ENUM.MACOS];
+
+export { PUBLISHED_CATEGORIES, CATEGORIES_ENUM };
