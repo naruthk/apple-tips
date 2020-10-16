@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { graphql } from 'gatsby'
+import * as React from "react";
+import { graphql } from "gatsby";
 
-import Page from '../components/Page'
-import Container from '../components/Container'
-import IndexLayout from '../layouts'
+import Page from "../components/Page";
+import Container from "../components/Container";
+import IndexLayout from "../layouts";
 
 import { MarkdownRemark } from "../typings";
 
@@ -11,16 +11,16 @@ interface PageTemplateProps {
   data: {
     site: {
       siteMetadata: {
-        title: string
-        description: string
+        title: string;
+        description: string;
         author: {
-          name: string
-          url: string
-        }
-      }
-    }
-    markdownRemark: MarkdownRemark
-  }
+          name: string;
+          url: string;
+        };
+      };
+    };
+    markdownRemark: MarkdownRemark;
+  };
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
@@ -48,10 +48,10 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
         </Container>
       </Page>
     </IndexLayout>
-  )
+  );
 };
 
-export default PageTemplate
+export default PageTemplate;
 
 export const query = graphql`
   query PageTemplateQuery($slug: String!) {
@@ -79,4 +79,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

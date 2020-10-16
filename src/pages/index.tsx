@@ -1,13 +1,13 @@
-import React, { FC } from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { FC } from "react";
+import { Link, graphql } from "gatsby";
 
-import Page from '../components/Page'
-import Container from '../components/Container'
-import MainLayout from '../layouts'
+import Page from "../components/Page";
+import Container from "../components/Container";
+import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
 import { CATEGORIES_ENUM } from "../constants";
-import useFilterHooks from '../hooks/useFilterHooks'
+import useFilterHook from "../hooks/useFilterHook";
 
 interface IndexPageProps {
   data: {
@@ -16,19 +16,19 @@ interface IndexPageProps {
         {
           node: {
             fields: {
-              slug: string,
-              collection: string
-            },
-            frontmatter: Frontmatter
-          }
+              slug: string;
+              collection: string;
+            };
+            frontmatter: Frontmatter;
+          };
         }
-      ]
-    }
-  }
+      ];
+    };
+  };
 }
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
-  const { availableCategories } = useFilterHooks();
+  const { availableCategories } = useFilterHook();
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
 
@@ -55,10 +55,17 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
         <Container>
           <p>Search area</p>
           <ul>
-            {availableCategories.map(category => <li key={category}>{category}</li>)}
+            {availableCategories.map(category => (
+              <li key={category}>{category}</li>
+            ))}
           </ul>
           <ul>
-            {articlesListing.map(article => <li key={article.slug}><p>{article.title}</p><p>{article.description}</p></li>)}
+            {articlesListing.map(article => (
+              <li key={article.slug}>
+                <p>{article.title}</p>
+                <p>{article.description}</p>
+              </li>
+            ))}
           </ul>
           <Link to="/page-2/">Go to page 2</Link>
         </Container>
@@ -66,7 +73,6 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
     </MainLayout>
   );
 };
-
 
 export const query = graphql`
   query IndexPageQuery {
@@ -86,7 +92,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-
-export default IndexPage
+export default IndexPage;

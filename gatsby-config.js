@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Apple Tips and Tricks',
     description: 'A collection of tips and tricks for people who are using Apple products and ecosystem.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
+    keywords: 'apple, tips, tricks',
     siteUrl: 'https://apple-tips.netlify.com',
     author: {
       name: 'Naruth Kongurai',
