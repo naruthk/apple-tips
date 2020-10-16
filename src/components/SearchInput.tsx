@@ -6,16 +6,14 @@ import { useCombobox } from "downshift"
 
 import useSearchHook from "../hooks/useSearchHook";
 
+import { Frontmatter, Fields } from "../typings";
+
 const StyledContainer = styled.div`
   width: 100%;
 `;
 
-interface SearchInput {
-  className?: string;
-}
-
-const SearchInput: FC<SearchInput> = ({ className }) => {
-  const { inputValue, setInputValue, availableDataForQuerying } = useSearchHook();
+const SearchInput: FC = () => {
+  const { availableDataForQuerying } = useSearchHook();
 
   const fuse = useMemo(
     () =>
@@ -35,11 +33,11 @@ const SearchInput: FC<SearchInput> = ({ className }) => {
 
   const [inputItems, setInputItems] = useState(availableDataForQuerying);
 
-  const handleSelectedItemChange = selectedItem => {
+  const handleSelectedItemChange = (selectedItem: { "fields": Fields }) => {
     navigate(selectedItem.fields.slug);
   }
 
-  const handleInputValueChange = inputValue => {
+  const handleInputValueChange = (inputValue: string) => {
     const searchResults = fuse.search(inputValue).map(node => node.item);
     setInputItems(searchResults);
   };
@@ -56,7 +54,7 @@ const SearchInput: FC<SearchInput> = ({ className }) => {
   } = useCombobox({
     items: inputItems,
     onSelectedItemChange: ({ selectedItem }) => handleSelectedItemChange(selectedItem),
-    onInputValueChange: ({ inputValue }) => handleInputValueChange(inputValue)
+    onInputValueChange: ({ inputValue = "" }) => handleInputValueChange(inputValue)
   })
 
   return (
@@ -74,15 +72,20 @@ const SearchInput: FC<SearchInput> = ({ className }) => {
       </div>
       <ul {...getMenuProps()}>
         {isOpen &&
-          inputItems.map((node, index) => {
-            const { id, fields } = node;
+          inputItems.map((node: { id: string; fields: Fields; frontmatter: Frontmatter; }, index: number) => {
+            const { id, fields, frontmatter } = node;
             return (
               <Link
                 key={id}
                 to={fields.slug}
                 {...getItemProps({ item: node, index })}
               >
-                <li>{node.frontmatter.title}</li>
+                <li>
+                  <div>
+                    <h2>{frontmatter.title}</h2>
+                    <p>{frontmatter.description}</p>
+                  </div>
+                </li>
               </Link>
             )
           })

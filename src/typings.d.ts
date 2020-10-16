@@ -18,6 +18,12 @@ export interface MarkdownRemark {
   frontmatter: Frontmatter;
 }
 
+export interface Fields {
+  collection: string,
+  slug: string,
+  layout: string
+}
+
 declare module "*.module.scss" {
   const cssModule: CSSModule;
   export = cssModule;

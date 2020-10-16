@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 const DEFAULT_PLACEHOLDER = "Search for tips and tricks";
 
 const useSearchHook = () => {
-  const [inputValue, setInputValue] = useState(DEFAULT_PLACEHOLDER);
-
   const queriedData = useStaticQuery(graphql`
     query AvailableDataForQuerying {
       allMarkdownRemark {
@@ -26,8 +23,6 @@ const useSearchHook = () => {
 
   return {
     DEFAULT_PLACEHOLDER,
-    inputValue,
-    setInputValue,
     availableDataForQuerying: queriedData.allMarkdownRemark.nodes
   };
 };
