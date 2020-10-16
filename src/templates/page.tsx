@@ -5,6 +5,8 @@ import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
 
+import { MarkdownRemark } from "../typings";
+
 interface PageTemplateProps {
   data: {
     site: {
@@ -17,19 +19,7 @@ interface PageTemplateProps {
         }
       }
     }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      frontmatter: {
-        title: string,
-        date: string,
-        author: string,
-        description: string,
-        keyboardCommand: string,
-        source: string,
-        osVersion: string
-      }
-    }
+    markdownRemark: MarkdownRemark
   }
 }
 
