@@ -19,7 +19,7 @@ interface StaticQueryProps {
   }
 }
 
-const IndexLayout: React.FC = ({ children }) => (
+const MainLayout: React.FC = ({ children }) => (
   <StaticQuery
     query={graphql`
       query IndexLayoutQuery {
@@ -47,4 +47,4 @@ const IndexLayout: React.FC = ({ children }) => (
   />
 )
 
-export default IndexLayout
+export default MainLayout

@@ -16,8 +16,22 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'content',
-        path: `${__dirname}/src/content`
+        name: 'ios',
+        path: `${__dirname}/src/content/ios`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'ipados',
+        path: `${__dirname}/src/content/ipados`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'macos',
+        path: `${__dirname}/src/content/macos`
       }
     },
     {

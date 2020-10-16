@@ -23,11 +23,11 @@ interface PageTemplateProps {
       frontmatter: {
         title: string,
         date: string,
-        modifiedDate: string,
         author: string,
         description: string,
         keyboardCommand: string,
-        source: string
+        source: string,
+        osVersion: string
       }
     }
   }
@@ -37,10 +37,10 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   const {
     title,
     date,
-    modifiedDate,
     author,
     keyboardCommand,
-    source
+    source,
+    osVersion
   } = data.markdownRemark.frontmatter;
 
   return (
@@ -50,11 +50,11 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
           <h1>{title}</h1>
           <p>Author: {author}</p>
           <p>Published: {date}</p>
-          <p>Last updated: {modifiedDate.length && modifiedDate || date}</p>
           {keyboardCommand && <p>Command: {keyboardCommand}</p>}
+          <p>Version: {osVersion}</p>
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-          <p>Source: {source}</p>
+          {source && <p>Source: {source}</p>}
         </Container>
       </Page>
     </IndexLayout>
@@ -81,11 +81,11 @@ export const query = graphql`
       frontmatter {
         title
         date
-        modifiedDate
         author
         description
         keyboardCommand
         source
+        osVersion
       }
     }
   }

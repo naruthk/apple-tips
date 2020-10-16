@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   switch (node.internal.type) {
     case 'MarkdownRemark': {
       const { permalink, layout } = node.frontmatter
-      const { relativePath } = getNode(node.parent)
+      const { relativePath, sourceInstanceName: collection } = getNode(node.parent)
 
       let slug = permalink
 
@@ -16,11 +16,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         slug = `/${relativePath.replace('.md', '')}/`
       }
 
+      // Used to categorize each type (iOS, macOS, etc.)
+      createNodeField({
+        node,
+        name: 'collection',
+        value: collection,
+      });
+
       // Used to generate URL to view this content.
       createNodeField({
         node,
         name: 'slug',
-        value: slug || ''
+        value: `/${collection}${slug}` || ''
       })
 
       // Used to determine a page layout.
