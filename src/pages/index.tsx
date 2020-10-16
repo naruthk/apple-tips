@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 
 import Page from "../components/Page";
 import Container from "../components/Container";
+import SearchInput from "../components/SearchInput";
 import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
@@ -53,7 +54,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
     <MainLayout>
       <Page>
         <Container>
-          <p>Search area</p>
+          <SearchInput />
           <ul>
             {availableCategories.map(category => (
               <li key={category}>{category}</li>
