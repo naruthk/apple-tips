@@ -1,6 +1,8 @@
 import React, { useState, useMemo, FC } from "react";
+import { Link, navigate } from "gatsby";
 import styled from "@emotion/styled";
 import Fuse from "fuse.js";
+import { useCombobox } from "downshift"
 
 import useSearchHook from "../hooks/useSearchHook";
 
@@ -29,17 +31,72 @@ const SearchInput: FC<SearchInput> = ({ className }) => {
         ]
       }),
     [availableDataForQuerying]
-  )
+  );
 
-  const result = fuse.search('hold')
+  const [inputItems, setInputItems] = useState(availableDataForQuerying);
 
-  console.log('result', result)
+  const handleSelectedItemChange = selectedItem => {
+    navigate(selectedItem.fields.slug);
+  }
+
+  const handleInputValueChange = inputValue => {
+    const searchResults = fuse.search(inputValue).map(node => node.item);
+    setInputItems(searchResults);
+  };
+
+  const {
+    isOpen,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getInputProps,
+    getComboboxProps,
+    highlightedIndex,
+    getItemProps,
+  } = useCombobox({
+    items: inputItems,
+    onSelectedItemChange: ({ selectedItem }) => handleSelectedItemChange(selectedItem),
+    onInputValueChange: ({ inputValue }) => handleInputValueChange(inputValue)
+  })
 
   return (
-    <StyledContainer className={className}>
-      <p>Search input hello</p>
-    </StyledContainer>
-  );
+    <div>
+      <label {...getLabelProps()}>Choose an element:</label>
+      <div {...getComboboxProps()}>
+        <input {...getInputProps()} />
+        <button
+          type="button"
+          {...getToggleButtonProps()}
+          aria-label="toggle menu"
+        >
+          Search
+        </button>
+      </div>
+      <ul {...getMenuProps()}>
+        {isOpen &&
+          inputItems.map((node, index) => {
+            const { id, fields } = node;
+            return (
+              <Link
+                key={id}
+                to={fields.slug}
+                {...getItemProps({ item: node, index })}
+              >
+                <li>{node.frontmatter.title}</li>
+              </Link>
+            )
+          })
+        }
+      </ul>
+    </div>
+  )
+
+
+  // return (
+  //   <StyledContainer className={className}>
+  //     <p>Search input hello</p>
+  //   </StyledContainer>
+  // );
 };
 
 export default SearchInput;
