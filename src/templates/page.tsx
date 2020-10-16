@@ -21,23 +21,45 @@ interface PageTemplateProps {
       html: string
       excerpt: string
       frontmatter: {
-        title: string
+        title: string,
+        date: string,
+        modifiedDate: string,
+        author: string,
+        description: string,
+        keyboardCommand: string,
+        source: string
       }
     }
   }
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  const {
+    title,
+    date,
+    modifiedDate,
+    author,
+    keyboardCommand,
+    source
+  } = data.markdownRemark.frontmatter;
+
+  return (
+    <IndexLayout>
+      <Page>
+        <Container>
+          <h1>{title}</h1>
+          <p>Author: {author}</p>
+          <p>Published: {date}</p>
+          <p>Last updated: {modifiedDate.length && modifiedDate || date}</p>
+          {keyboardCommand && <p>Command: {keyboardCommand}</p>}
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <p>Source: {source}</p>
+        </Container>
+      </Page>
+    </IndexLayout>
+  )
+};
 
 export default PageTemplate
 
@@ -58,6 +80,12 @@ export const query = graphql`
       excerpt
       frontmatter {
         title
+        date
+        modifiedDate
+        author
+        description
+        keyboardCommand
+        source
       }
     }
   }
