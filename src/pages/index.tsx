@@ -30,7 +30,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
-  const { selectedCategories } = useFilterHook();
+  const { selectedCategories, setSelectedCategories, availableCategories } = useFilterHook([]);
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
 
@@ -47,7 +47,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
       };
     })
     .filter(item => {
-      if (selectedCategories.includes(CATEGORIES_ENUM.ALL)) return true;
+      if (selectedCategories.length === 0) return true;
 
       const exactLetterCasing = CATEGORIES_ENUM[item.collection.toUpperCase()];
       return selectedCategories.includes(exactLetterCasing);
@@ -58,7 +58,20 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
       <Page>
         <Container>
           <SearchInput />
-          <Filter />
+          <Filter
+            items={availableCategories}
+            onSelect={(e: { target: { value: string; }; }) => {
+              const value = e.target.value;
+
+              if (!selectedCategories.includes(value)) {
+                setSelectedCategories([...selectedCategories, value]);
+              } else {
+                const arrayWithRemovedValue = selectedCategories.filter(category => category !== value)
+                setSelectedCategories(arrayWithRemovedValue);
+              }
+            }}
+            onReset={() => setSelectedCategories([])}
+          />
           <ul>
             {articlesListing.map(article => (
               <li key={article.slug}>

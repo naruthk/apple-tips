@@ -1,30 +1,24 @@
 import React, { FC } from "react";
 import styled from "@emotion/styled";
 
-import useFilterHook from "../hooks/useFilterHook";
-import { CATEGORIES_ENUM } from "../constants";
-
 const StyledContainer = styled.div`
   width: 100%;
 `;
 
-const Filter: FC = () => {
-  const { selectedCategories, setSelectedCategories, availableCategories } = useFilterHook();
+interface FilterProps {
+  items: Array<string>,
+  onSelect: Function,
+  onReset: Function
+}
 
-  const handleFilterSelected = e => {
-    const value = e.target.value;
-    if (!selectedCategories.includes(value)) {
-      setSelectedCategories([...selectedCategories, value]);
-    }
-  };
-
-  const selectableFilters = availableCategories.map(category => (
-    <button key={category} value={category} onClick={e => handleFilterSelected(e)}>{category}</button>
+const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
+  const selectableFilters = items.map(item => (
+    <button key={item} value={item} onClick={e => onSelect(e)}>{item}</button>
   ));
 
   return (
     <ul>
-      <button onClick={() => setSelectedCategories([CATEGORIES_ENUM.ALL])}>All</button>
+      <button onClick={() => onReset()}>All</button>
       {selectableFilters}
     </ul>
   )

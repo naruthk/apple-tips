@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { PUBLISHED_CATEGORIES, CATEGORIES_ENUM } from "../constants";
+import { PUBLISHED_CATEGORIES } from "../constants";
 
-const useFilterHook = () => {
-  const [selectedCategories, setSelectedCategories] = useState([CATEGORIES_ENUM.ALL]);
+const useFilterHook = (defaultValue: string[]) => {
+  const [selectedCategories, setSelectedCategories] = useState(defaultValue);
 
   return {
     availableCategories: PUBLISHED_CATEGORIES,
