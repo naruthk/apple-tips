@@ -12,8 +12,8 @@ const StyledSearchInput = styled.input`
   padding: 1rem;
   outline: none;
   color: ${colors.gray.light};
-  background-color: ${colors.gray.dark};
-  border: 2px solid ${colors.gray.dark};
+  background-color: ${colors.gray.calm};
+  border: 2px solid ${colors.gray.calm};
   border-radius: 20px;
 
   :focus,

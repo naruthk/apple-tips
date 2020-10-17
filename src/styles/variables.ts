@@ -16,6 +16,7 @@ export const colors = {
     copy: "hsla(270, 15.797828016000002%, 0%, 0.88)",
     calm: "rgba(0, 0, 0, 0.54)"
   },
+  navy: "#11112f",
   green: "#42FFA0",
   blue: "#145DFC",
   yellow: "#ffb238",
@@ -53,10 +54,10 @@ export const dimensions = {
     large: 18
   },
   headingSizes: {
-    h1: 2.441,
-    h2: 1.953,
-    h3: 1.563,
-    h4: 1.25
+    h1: 1.8,
+    h2: 1.553,
+    h3: 1.263,
+    h4: 1.15
   },
   lineHeight: {
     tight: 1,
@@ -64,8 +65,4 @@ export const dimensions = {
     heading: 1.2
   },
   containerPadding: 1.2
-};
-
-export const heights = {
-  header: 60
 };

@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import MainLayout from "../layouts";
 
 import { MarkdownRemark, Location } from "../typings";
+import Post from "../components/post";
 
 interface PageTemplateProps {
   location: Location,
@@ -24,26 +25,12 @@ interface PageTemplateProps {
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ location, data }) => {
-  const {
-    title,
-    date,
-    author,
-    keyboardCommand,
-    source,
-    osVersion
-  } = data.markdownRemark.frontmatter;
+  const { frontmatter, html } = data.markdownRemark;
 
   return (
     <MainLayout location={location}>
       <Container>
-        <h1>{title}</h1>
-        <p>Author: {author}</p>
-        <p>Published: {date}</p>
-        {keyboardCommand && <p>Command: {keyboardCommand}</p>}
-        <p>Version: {osVersion}</p>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-        {source && <p>Source: {source}</p>}
+        <Post postData={frontmatter} html={html} />
       </Container>
     </MainLayout>
   );

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import SearchInput from "../searchInputs";
+import SearchInput from "../searchInput";
 import { StyledHeader, HeaderInner, HomepageLink, Tagline } from "./style";
 
 interface HeaderProps {
