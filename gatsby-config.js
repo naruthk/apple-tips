@@ -14,7 +14,7 @@ module.exports = {
     texts: {
       searchPlaceHolderText: "Search for tips and tricks",
       copyright: "2020",
-      applyForContributions: "Help grow our resources by sharing a tip with us",
+      applyForContributions: "Help grow our resources by sharing what you know with us",
       builtWithGatsby: "Powered by Gatsby.js"
     }
   },

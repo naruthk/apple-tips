@@ -9,6 +9,13 @@ const StyledFooter = styled.footer`
   background-color: ${colors.black};
 `;
 
+const CallToActionContainer = styled.div`
+  margin-top: -5rem;
+  padding: 1rem;
+  background-color: ${colors.hero};
+  border-bottom: 2px solid ${colors.white};
+`;
+
 const FooterInner = styled(Container)`
   display: flex;
   flex-direction: column;
@@ -18,10 +25,13 @@ const FooterInner = styled(Container)`
 `;
 
 const ContributionsLink = styled(Link)`
-  margin: 2.5rem auto 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
   padding: 1.5rem;
   border-radius: 20px;
-  color: ${colors.brand};
+  color: ${colors.black};
   font-weight: 600;
   font-size: ${dimensions.fontSize.large}px;
 
@@ -29,11 +39,22 @@ const ContributionsLink = styled(Link)`
   &:focus {
     text-decoration: none;
   }
+`;
+
+const ActionLink = styled.span`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid ${colors.gray.calm};
+  font-size: ${dimensions.fontSize.regular}px;
+
+  :hover {
+    border: 1px solid ${colors.black};
+  }
 
   ::after {
     content: ">";
     margin-left: 10px;
-  }
+  }  
 `;
 
 const AuthorCredit = styled.p`
@@ -43,6 +64,7 @@ const AuthorCredit = styled.p`
 
   a {
     color: ${colors.white};
+    font-weight: 600;
     &:hover,
     &:focus {
       color: ${colors.white};
@@ -51,4 +73,11 @@ const AuthorCredit = styled.p`
   }
 `;
 
-export { StyledFooter, FooterInner, ContributionsLink, AuthorCredit };
+export {
+  StyledFooter,
+  CallToActionContainer,
+  FooterInner,
+  ContributionsLink,
+  AuthorCredit,
+  ActionLink
+};

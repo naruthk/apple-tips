@@ -3,9 +3,11 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import {
   StyledFooter,
+  CallToActionContainer,
   FooterInner,
   ContributionsLink,
-  AuthorCredit
+  AuthorCredit,
+  ActionLink
 } from "./style";
 
 const CONTRIBUTIONS_PAGE_URL = "/contributions";
@@ -35,9 +37,14 @@ const Footer: FC = () => {
   return (
     <StyledFooter>
       <FooterInner>
-        <ContributionsLink to={CONTRIBUTIONS_PAGE_URL} title="Contribute">
-          {texts.applyForContributions}
-        </ContributionsLink>
+        <CallToActionContainer>
+          <ContributionsLink to={CONTRIBUTIONS_PAGE_URL} title="Contribute">
+            <p>{texts.applyForContributions}</p>
+            <ActionLink>
+              Contribute
+            </ActionLink>
+          </ContributionsLink>
+        </CallToActionContainer>
         <AuthorCredit>
           <span>Developed by </span>
           <a href={author.url} title={`Homepage of ${author.name}`}>

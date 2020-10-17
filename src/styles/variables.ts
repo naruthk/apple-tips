@@ -2,6 +2,7 @@
 
 export const colors = {
   brand: "#F6A435",
+  hero: "#ffbc98",
   success: "#37b635",
   warning: "#D96477",
   ui: {
