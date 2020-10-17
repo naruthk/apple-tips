@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+
 import { getEmSize } from "../../styles/mixins";
-import { dimensions, fonts, colors, breakpoints } from "../../styles/variables";
+import { colors, breakpoints } from "../../styles/variables";
 
 const StyledSearchContainer = styled.div`
   width: 100%;

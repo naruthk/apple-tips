@@ -3,9 +3,8 @@ import { Link, graphql } from "gatsby";
 
 import Page from "../components/Page";
 import Container from "../components/Container";
-import SearchInput from "../components/searchInputs";
 import Filter from "../components/Filter";
-import ArticlesList from "../components/ArticlesList";
+import ArticlesListing from "../components/articlesListing";
 import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
@@ -56,7 +55,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
     .filter(item => {
       if (selectedCategories.length === 0) return true; // Nothing is selected
 
-      const exactLetterCasing = CollectionCategories[item.collection.toUpperCase()];
+      const exactLetterCasing = CollectionCategories[item.collection];
       return selectedCategories.includes(exactLetterCasing);
     });
 
@@ -64,7 +63,6 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
     <MainLayout>
       <Page>
         <Container>
-          <SearchInput />
           <Filter
             items={PUBLISHED_CATEGORIES}
             onSelect={(e: { target: { value: string } }) => {
@@ -81,7 +79,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
             }}
             onReset={() => setSelectedCategories([])}
           />
-          <ArticlesList items={articlesListing} />
+          <ArticlesListing items={articlesListing} />
         </Container>
       </Page>
     </MainLayout>

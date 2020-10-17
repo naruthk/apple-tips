@@ -7,7 +7,6 @@ import useSearchHook from "../../hooks/useSearchHook";
 import { StyledSearchContainer, StyledSearchInput } from "./style";
 import { Frontmatter, Fields } from "../../typings";
 
-
 const SearchInput: FC = () => {
   const { DEFAULT_PLACEHOLDER, availableDataForQuerying } = useSearchHook();
 
