@@ -2,20 +2,20 @@
  * Supported categories
  * @enum {string}
  */
-const COLLECTION_CATEGORIES: { [char: string]: string } = {
-  ALL: "All",
-  IOS: "iOS",
-  IPADOS: "iPadOS",
-  MACOS: "macOS"
+const CollectionCategories: { [char: string]: string } = {
+  all: "All",
+  ios: "iOS",
+  ipados: "iPadOS",
+  macos: "macOS"
 };
 
 /**
  * An array of currently active categories.
  */
 const PUBLISHED_CATEGORIES = [
-  COLLECTION_CATEGORIES.IOS,
-  COLLECTION_CATEGORIES.IPADOS,
-  COLLECTION_CATEGORIES.MACOS
+  CollectionCategories.ios,
+  CollectionCategories.ipados,
+  CollectionCategories.macos
 ];
 
-export { PUBLISHED_CATEGORIES, COLLECTION_CATEGORIES };
+export { PUBLISHED_CATEGORIES, CollectionCategories };

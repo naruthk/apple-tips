@@ -3,13 +3,13 @@ import { Link, graphql } from "gatsby";
 
 import Page from "../components/Page";
 import Container from "../components/Container";
-import SearchInput from "../components/SearchInput";
+import SearchInput from "../components/searchInputs";
 import Filter from "../components/Filter";
 import ArticlesList from "../components/ArticlesList";
 import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
-import { COLLECTION_CATEGORIES } from "../constants";
+import { CollectionCategories, PUBLISHED_CATEGORIES } from "../constants";
 import useFilterHook from "../hooks/useFilterHook";
 
 interface IndexPageProps {
@@ -33,16 +33,17 @@ interface IndexPageProps {
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
   const {
     selectedCategories,
-    setSelectedCategories,
-    availableCategories
+    setSelectedCategories
   } = useFilterHook([]);
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
 
+  // Look for articles and filters for ones that belong in the list of selected categories
   const articlesListing = allTipsTricksData
     .map(edge => {
       const { slug, collection } = edge.node.fields;
       const { title, description, date, osVersion } = edge.node.frontmatter;
+
       return {
         slug,
         collection,
@@ -53,9 +54,9 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
       };
     })
     .filter(item => {
-      if (selectedCategories.length === 0) return true;
+      if (selectedCategories.length === 0) return true; // Nothing is selected
 
-      const exactLetterCasing = COLLECTION_CATEGORIES[item.collection.toUpperCase()];
+      const exactLetterCasing = CollectionCategories[item.collection.toUpperCase()];
       return selectedCategories.includes(exactLetterCasing);
     });
 
@@ -65,7 +66,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
         <Container>
           <SearchInput />
           <Filter
-            items={availableCategories}
+            items={PUBLISHED_CATEGORIES}
             onSelect={(e: { target: { value: string } }) => {
               const value = e.target.value;
 

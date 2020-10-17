@@ -1,20 +1,20 @@
-import React, { useState, useMemo, FC } from "react";
+import React, { useState, useMemo, FC, Fragment } from "react";
 import { Link, navigate } from "gatsby";
-import styled from "@emotion/styled";
 import Fuse from "fuse.js";
 import { useCombobox } from "downshift";
 
-import useSearchHook from "../hooks/useSearchHook";
+import useSearchHook from "../../hooks/useSearchHook";
+import { StyledSearchContainer, StyledSearchInput } from "./style";
+import { Frontmatter, Fields } from "../../typings";
 
-import { Frontmatter, Fields } from "../typings";
-
-const StyledContainer = styled.div`
-  width: 100%;
-`;
 
 const SearchInput: FC = () => {
   const { DEFAULT_PLACEHOLDER, availableDataForQuerying } = useSearchHook();
 
+  /**
+   * Initialize a Fuse instance with "keys" properties being the information 
+   *     that we allow the user to search for
+   */
   const fuse = useMemo(
     () =>
       new Fuse(availableDataForQuerying, {
@@ -30,10 +30,18 @@ const SearchInput: FC = () => {
 
   const [inputItems, setInputItems] = useState(availableDataForQuerying);
 
+  /**
+   * When selected, take the user to the article using the slug field as our url param
+   * @param selectedItem selected article containing the slug
+   */
   const handleSelectedItemChange = (selectedItem: { fields: Fields }) => {
     navigate(selectedItem.fields.slug);
   };
 
+  /**
+   * When the value is changed, run a search
+   * @param inputValue value to use for searching
+   */
   const handleInputValueChange = (inputValue: string) => {
     const searchResults = fuse.search(inputValue).map(node => node.item);
     setInputItems(searchResults);
@@ -50,25 +58,18 @@ const SearchInput: FC = () => {
     getItemProps
   } = useCombobox({
     items: inputItems,
-    onSelectedItemChange: ({ selectedItem }) =>
-      handleSelectedItemChange(selectedItem),
+    onSelectedItemChange: ({ selectedItem }) => {
+      handleSelectedItemChange(selectedItem);
+    },
     onInputValueChange: ({ inputValue = "" }) =>
       handleInputValueChange(inputValue)
   });
 
   return (
-    <div>
-      <label {...getLabelProps()}>Choose an element:</label>
-      <div {...getComboboxProps()}>
-        <input {...getInputProps()} placeholder={DEFAULT_PLACEHOLDER} />
-        <button
-          type="button"
-          {...getToggleButtonProps()}
-          aria-label="toggle menu"
-        >
-          Search
-        </button>
-      </div>
+    <Fragment>
+      <StyledSearchContainer {...getComboboxProps()}>
+        <StyledSearchInput {...getInputProps()} placeholder={DEFAULT_PLACEHOLDER} />
+      </StyledSearchContainer>
       <ul {...getMenuProps()}>
         {isOpen &&
           inputItems.map(
@@ -94,7 +95,7 @@ const SearchInput: FC = () => {
             }
           )}
       </ul>
-    </div>
+    </Fragment>
   );
 };
 
