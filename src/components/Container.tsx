@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { FC } from "react";
 import styled from "@emotion/styled";
 
 import { widths } from "../styles/variables";
@@ -16,7 +16,7 @@ interface ContainerProps {
   className?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, className }) => (
+const Container: FC<ContainerProps> = ({ children, className }) => (
   <StyledContainer className={className}>{children}</StyledContainer>
 );
 

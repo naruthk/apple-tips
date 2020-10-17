@@ -5,7 +5,7 @@ interface CSSModule {
 export interface Frontmatter {
   title: string;
   date: string;
-  author: string;
+  author?: string;
   description: string;
   keyboardCommand?: string;
   source?: string;
@@ -21,7 +21,11 @@ export interface MarkdownRemark {
 export interface Fields {
   collection: string,
   slug: string,
-  layout: string
+  layout?: string
+}
+
+export interface Article extends Frontmatter, Fields {
+
 }
 
 declare module "*.module.scss" {

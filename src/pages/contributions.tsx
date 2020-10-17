@@ -5,23 +5,15 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import IndexLayout from "../layouts";
 
-const PageTwo = () => (
+const ContributionsPage = () => (
   <IndexLayout>
     <Page>
       <Container>
-        <h1>Hi from the second page</h1>
+        <h1>Contributing</h1>
         <p>Welcome to page 2</p>
-        <ul>
-          <li>
-            <Link to="/welcome-to-apple-tips/">Show me some Markdown!</Link>
-          </li>
-          <li>
-            <Link to="/">Take me back home.</Link>
-          </li>
-        </ul>
       </Container>
     </Page>
   </IndexLayout>
 );
 
-export default PageTwo;
+export default ContributionsPage;

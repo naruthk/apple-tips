@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { FC } from "react";
 import styled from "@emotion/styled";
 import { transparentize } from "polished";
 import { Link } from "gatsby";
@@ -35,7 +35,7 @@ interface HeaderProps {
   title: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ title }) => (
+const Header: FC<HeaderProps> = ({ title }) => (
   <StyledHeader>
     <HeaderInner>
       <HomepageLink to="/">{title}</HomepageLink>

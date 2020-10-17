@@ -5,6 +5,7 @@ import Page from "../components/Page";
 import Container from "../components/Container";
 import SearchInput from "../components/SearchInput";
 import Filter from "../components/Filter";
+import ArticlesList from "../components/ArticlesList";
 import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
@@ -37,11 +38,12 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
   const articlesListing = allTipsTricksData
     .map(edge => {
       const { slug, collection } = edge.node.fields;
-      const { title, description, osVersion } = edge.node.frontmatter;
+      const { title, description, date, osVersion } = edge.node.frontmatter;
       return {
         slug,
         collection,
         title,
+        date,
         description,
         osVersion
       };
@@ -70,17 +72,14 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
                 setSelectedCategories(arrayWithRemovedValue);
               }
             }}
-            onReset={() => setSelectedCategories([])}
+            onReset={(e: { preventDefault: () => Function; target: { reset: () => Function; }; }) => {
+              e.preventDefault();
+              e.target.reset();
+              setSelectedCategories([])
+            }}
           />
-          <ul>
-            {articlesListing.map(article => (
-              <li key={article.slug}>
-                <p>{article.title}</p>
-                <p>{article.description}</p>
-              </li>
-            ))}
-          </ul>
-          <Link to="/page-2/">Go to page 2</Link>
+          <ArticlesList items={articlesListing} />
+          <Link to="/contributions">Have a few tips or tricks to share with us?</Link>
         </Container>
       </Page>
     </MainLayout>
@@ -97,8 +96,9 @@ export const query = graphql`
             collection
           }
           frontmatter {
-            description
             title
+            description
+            date
             osVersion
           }
         }
