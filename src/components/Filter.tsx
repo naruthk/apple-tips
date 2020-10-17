@@ -1,4 +1,4 @@
-import React, { Fragment, FC } from "react";
+import React, { Fragment, FC, useState } from "react";
 import styled from "@emotion/styled";
 
 const StyledContainer = styled.div`
@@ -12,6 +12,8 @@ interface FilterProps {
 }
 
 const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
+  const [checkedValues, setCheckedValues] = useState<string[]>([]);
+
   const selectableFilters = items.map(item => (
     <Fragment key={item}>
       <input
@@ -19,14 +21,31 @@ const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
         id={item}
         name={item}
         value={item}
-        onChange={e => onSelect(e)}
+        checked={checkedValues.includes(item)}
+        onChange={e => {
+          onSelect(e);
+
+          const value = e.target.value;
+          if (!checkedValues.includes(value)) {
+            checkedValues.push(value);
+          } else {
+            const arrayWithRemovedValue = checkedValues.filter(
+              existingValue => existingValue !== value
+            );
+            setCheckedValues(arrayWithRemovedValue);
+          }
+        }}
       />
       <label htmlFor={item}>{item}</label>
     </Fragment>
   ));
 
   return (
-    <form onReset={e => onReset(e)}>
+    <form onReset={e => {
+      e.preventDefault();
+      onReset(e);
+      setCheckedValues([]);
+    }}>
       <ul>
         <button type="reset">All</button>
         {selectableFilters}

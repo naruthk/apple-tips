@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { FC } from "react";
 import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 
 import "modern-normalize";
 import "../styles/normalize";
@@ -19,7 +19,7 @@ interface StaticQueryProps {
   };
 }
 
-const MainLayout: React.FC = ({ children }) => (
+const MainLayout: FC = ({ children }) => (
   <StaticQuery
     query={graphql`
       query IndexLayoutQuery {
@@ -45,6 +45,9 @@ const MainLayout: React.FC = ({ children }) => (
         />
         <Header title={data.site.siteMetadata.title} />
         <LayoutMain>{children}</LayoutMain>
+        <Link to="/contributions">
+          Have a few tips or tricks to share with us?
+        </Link>
       </LayoutRoot>
     )}
   />

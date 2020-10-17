@@ -9,7 +9,7 @@ import ArticlesList from "../components/ArticlesList";
 import MainLayout from "../layouts";
 
 import { Frontmatter } from "../typings";
-import { CATEGORIES_ENUM } from "../constants";
+import { COLLECTION_CATEGORIES } from "../constants";
 import useFilterHook from "../hooks/useFilterHook";
 
 interface IndexPageProps {
@@ -55,7 +55,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
     .filter(item => {
       if (selectedCategories.length === 0) return true;
 
-      const exactLetterCasing = CATEGORIES_ENUM[item.collection.toUpperCase()];
+      const exactLetterCasing = COLLECTION_CATEGORIES[item.collection.toUpperCase()];
       return selectedCategories.includes(exactLetterCasing);
     });
 
@@ -78,19 +78,9 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
                 setSelectedCategories(arrayWithRemovedValue);
               }
             }}
-            onReset={(e: {
-              preventDefault: () => Function;
-              target: { reset: () => Function };
-            }) => {
-              e.preventDefault();
-              e.target.reset();
-              setSelectedCategories([]);
-            }}
+            onReset={() => setSelectedCategories([])}
           />
           <ArticlesList items={articlesListing} />
-          <Link to="/contributions">
-            Have a few tips or tricks to share with us?
-          </Link>
         </Container>
       </Page>
     </MainLayout>
