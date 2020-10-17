@@ -49,8 +49,6 @@ const SearchInput: FC = () => {
 
   const {
     isOpen,
-    getToggleButtonProps,
-    getLabelProps,
     getMenuProps,
     getInputProps,
     getComboboxProps,

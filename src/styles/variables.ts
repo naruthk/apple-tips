@@ -1,18 +1,17 @@
 /* eslint-disable max-len */
 
 export const colors = {
-  brand: "#663399",
-  lilac: "#9d7cbf",
+  brand: "#F6A435",
   accent: "#ffb238",
   success: "#37b635",
-  warning: "#ec1818",
+  warning: "#D96477",
   ui: {
     bright: "#e0d6eb",
     light: "#f5f3f7",
     whisper: "#fbfafc"
   },
-  code: "#fcf6f0",
   gray: {
+    light: "#C1C1BF",
     dark: "hsla(270, 17.119554496%, 0%, 0.92)",
     copy: "hsla(270, 15.797828016000002%, 0%, 0.88)",
     calm: "rgba(0, 0, 0, 0.54)"
@@ -55,10 +54,11 @@ export const dimensions = {
     h4: 1.25
   },
   lineHeight: {
-    regular: 1.45,
+    tight: 1,
+    regular: 1.25,
     heading: 1.2
   },
-  containerPadding: 1.5
+  containerPadding: 1.2
 };
 
 export const heights = {

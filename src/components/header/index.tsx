@@ -3,32 +3,33 @@ import styled from "@emotion/styled";
 import { transparentize } from "polished";
 import { Link } from "gatsby";
 
-import { heights, dimensions, colors } from "../styles/variables";
-import Container from "./Container";
+import { heights, dimensions, colors } from "../../styles/variables";
+import Container from "../Container";
 
 const StyledHeader = styled.header`
-  height: ${heights.header}px;
+  margin-top: 1.5rem;
   padding: 0 ${dimensions.containerPadding}rem;
-  background-color: ${colors.brand};
-  color: ${transparentize(0.5, colors.white)};
 `;
 
 const HeaderInner = styled(Container)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
+  color: ${colors.white};
 `;
 
 const HomepageLink = styled(Link)`
   color: ${colors.white};
-  font-size: 1.5rem;
-  font-weight: 600;
 
   &:hover,
   &:focus {
     text-decoration: none;
   }
+`;
+
+const Tagline = styled.p`
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: ${dimensions.lineHeight.regular};
 `;
 
 interface HeaderProps {
@@ -39,6 +40,7 @@ const Header: FC<HeaderProps> = ({ title }) => (
   <StyledHeader>
     <HeaderInner>
       <HomepageLink to="/">{title}</HomepageLink>
+      <Tagline>What would you like to find out?</Tagline>
     </HeaderInner>
   </StyledHeader>
 );
