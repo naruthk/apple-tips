@@ -4,12 +4,10 @@ import { Link } from "gatsby";
 
 import { Article } from "../typings";
 
-const StyledContainer = styled.div`
-
-`;
+const StyledContainer = styled.div``;
 
 interface ArticlesListProps {
-  items: Array<Article>
+  items: Array<Article>;
 }
 
 const ArticlesList: FC<ArticlesListProps> = ({ items }) => (

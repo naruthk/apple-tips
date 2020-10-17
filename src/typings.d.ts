@@ -19,14 +19,12 @@ export interface MarkdownRemark {
 }
 
 export interface Fields {
-  collection: string,
-  slug: string,
-  layout?: string
+  collection: string;
+  slug: string;
+  layout?: string;
 }
 
-export interface Article extends Frontmatter, Fields {
-
-}
+export interface Article extends Frontmatter, Fields {}
 
 declare module "*.module.scss" {
   const cssModule: CSSModule;

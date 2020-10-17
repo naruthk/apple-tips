@@ -25,12 +25,12 @@ gatsby develop
 
 **Apple Tips** is an open-sourced project, which means you are more than welcomed to submit a pull request and help advance this project even further!
 
-### I'd like to add my tips to the list!
+Simply create a new Markdown article and place the file within the appropriate folder. This must be inside the `./content` folder.
 
-Sure thing! Simply create a new Markdown article and place the file within the appropriate folder. This must be inside the `./content` folder.
-
-To see how to format your Markdown file, simply pick any existing ones an example.
+To see how to format your Markdown file, check out published documents inside the `./content` folder as an example.
 
 ---
 
-Built using Gatsby.js because it's awesome!
+Built using Gatsby.js because it's awesome!.
+
+This project was bootstrapped with [gatsby-starter-typescript-plus](https://github.com/resir014/gatsby-starter-typescript-plus).

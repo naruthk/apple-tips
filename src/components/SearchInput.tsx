@@ -2,7 +2,7 @@ import React, { useState, useMemo, FC } from "react";
 import { Link, navigate } from "gatsby";
 import styled from "@emotion/styled";
 import Fuse from "fuse.js";
-import { useCombobox } from "downshift"
+import { useCombobox } from "downshift";
 
 import useSearchHook from "../hooks/useSearchHook";
 
@@ -23,10 +23,7 @@ const SearchInput: FC = () => {
         location: 0,
         distance: 100,
         minMatchCharLength: 1,
-        keys: [
-          "frontmatter.title",
-          "frontmatter.description"
-        ]
+        keys: ["frontmatter.title", "frontmatter.description"]
       }),
     [availableDataForQuerying]
   );
@@ -35,7 +32,7 @@ const SearchInput: FC = () => {
 
   const handleSelectedItemChange = (selectedItem: { fields: Fields }) => {
     navigate(selectedItem.fields.slug);
-  }
+  };
 
   const handleInputValueChange = (inputValue: string) => {
     const searchResults = fuse.search(inputValue).map(node => node.item);
@@ -50,12 +47,14 @@ const SearchInput: FC = () => {
     getInputProps,
     getComboboxProps,
     highlightedIndex,
-    getItemProps,
+    getItemProps
   } = useCombobox({
     items: inputItems,
-    onSelectedItemChange: ({ selectedItem }) => handleSelectedItemChange(selectedItem),
-    onInputValueChange: ({ inputValue = "" }) => handleInputValueChange(inputValue)
-  })
+    onSelectedItemChange: ({ selectedItem }) =>
+      handleSelectedItemChange(selectedItem),
+    onInputValueChange: ({ inputValue = "" }) =>
+      handleInputValueChange(inputValue)
+  });
 
   return (
     <div>
@@ -72,27 +71,31 @@ const SearchInput: FC = () => {
       </div>
       <ul {...getMenuProps()}>
         {isOpen &&
-          inputItems.map((node: { id: string; fields: Fields; frontmatter: Frontmatter; }, index: number) => {
-            const { id, fields, frontmatter } = node;
-            return (
-              <Link
-                key={id}
-                to={fields.slug}
-                {...getItemProps({ item: node, index })}
-              >
-                <li>
-                  <div>
-                    <h2>{frontmatter.title}</h2>
-                    <p>{frontmatter.description}</p>
-                  </div>
-                </li>
-              </Link>
-            )
-          })
-        }
+          inputItems.map(
+            (
+              node: { id: string; fields: Fields; frontmatter: Frontmatter },
+              index: number
+            ) => {
+              const { id, fields, frontmatter } = node;
+              return (
+                <Link
+                  key={id}
+                  to={fields.slug}
+                  {...getItemProps({ item: node, index })}
+                >
+                  <li>
+                    <div>
+                      <h2>{frontmatter.title}</h2>
+                      <p>{frontmatter.description}</p>
+                    </div>
+                  </li>
+                </Link>
+              );
+            }
+          )}
       </ul>
     </div>
-  )
+  );
 };
 
 export default SearchInput;

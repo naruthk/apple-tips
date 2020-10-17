@@ -6,9 +6,9 @@ const StyledContainer = styled.div`
 `;
 
 interface FilterProps {
-  items: Array<string>,
-  onSelect: Function,
-  onReset: Function
+  items: Array<string>;
+  onSelect: Function;
+  onReset: Function;
 }
 
 const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
@@ -26,13 +26,13 @@ const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
   ));
 
   return (
-    <form onReset={(e) => onReset(e)}>
+    <form onReset={e => onReset(e)}>
       <ul>
         <button type="reset">All</button>
         {selectableFilters}
       </ul>
     </form>
-  )
+  );
 };
 
 export default Filter;

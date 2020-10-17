@@ -31,7 +31,11 @@ interface IndexPageProps {
 }
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
-  const { selectedCategories, setSelectedCategories, availableCategories } = useFilterHook([]);
+  const {
+    selectedCategories,
+    setSelectedCategories,
+    availableCategories
+  } = useFilterHook([]);
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
 
@@ -62,24 +66,31 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
           <SearchInput />
           <Filter
             items={availableCategories}
-            onSelect={(e: { target: { value: string; }; }) => {
+            onSelect={(e: { target: { value: string } }) => {
               const value = e.target.value;
 
               if (!selectedCategories.includes(value)) {
                 setSelectedCategories([...selectedCategories, value]);
               } else {
-                const arrayWithRemovedValue = selectedCategories.filter(category => category !== value)
+                const arrayWithRemovedValue = selectedCategories.filter(
+                  category => category !== value
+                );
                 setSelectedCategories(arrayWithRemovedValue);
               }
             }}
-            onReset={(e: { preventDefault: () => Function; target: { reset: () => Function; }; }) => {
+            onReset={(e: {
+              preventDefault: () => Function;
+              target: { reset: () => Function };
+            }) => {
               e.preventDefault();
               e.target.reset();
-              setSelectedCategories([])
+              setSelectedCategories([]);
             }}
           />
           <ArticlesList items={articlesListing} />
-          <Link to="/contributions">Have a few tips or tricks to share with us?</Link>
+          <Link to="/contributions">
+            Have a few tips or tricks to share with us?
+          </Link>
         </Container>
       </Page>
     </MainLayout>
