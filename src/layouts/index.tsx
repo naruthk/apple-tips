@@ -10,7 +10,11 @@ import "../styles/normalize";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import { StyledRootLayoutContainer, StyledInnerLayoutContainer } from "./style";
+import {
+  StyledRootLayoutContainer,
+  StyledInnerLayoutContainer,
+  StyledChildContainer
+} from "./style";
 
 interface StaticQueryProps {
   site: {
@@ -67,7 +71,11 @@ const MainLayout: FC<MainLayoutProps> = ({ location, children }) => {
             ]}
             />
           <Header title={data.site.siteMetadata.title} showTagline={isRootPage} />
-          <StyledInnerLayoutContainer>{children}</StyledInnerLayoutContainer>
+          <StyledInnerLayoutContainer>
+            <StyledChildContainer>
+              {children}
+            </StyledChildContainer>
+          </StyledInnerLayoutContainer>
           <Footer />
         </StyledRootLayoutContainer>
       )}

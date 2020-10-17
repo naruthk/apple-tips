@@ -2,6 +2,10 @@ interface CSSModule {
   [className: string]: string;
 }
 
+export interface Location {
+  pathname: string;
+}
+
 export interface Frontmatter {
   title: string;
   date: string;

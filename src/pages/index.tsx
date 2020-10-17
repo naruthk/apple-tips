@@ -1,20 +1,17 @@
 import React, { FC } from "react";
 import { graphql } from "gatsby";
 
-import Page from "../components/Page";
 import Container from "../components/Container";
 import Filter from "../components/Filter";
 import ArticlesListing from "../components/articlesListing";
 import MainLayout from "../layouts";
 
-import { Frontmatter } from "../typings";
+import { Frontmatter, Location } from "../typings";
 import { CollectionCategories, PUBLISHED_CATEGORIES } from "../constants";
 import useFilterHook from "../hooks/useFilterHook";
 
 interface IndexPageProps {
-  location: {
-    pathname: string;
-  },
+  location: Location;
   data: {
     allMarkdownRemark: {
       edges: [
@@ -61,27 +58,25 @@ const IndexPage: FC<IndexPageProps> = ({ location, data }) => {
 
   return (
     <MainLayout location={location}>
-      <Page>
-        <Container>
-          <Filter
-            items={PUBLISHED_CATEGORIES}
-            onSelect={(e: { target: { value: string } }) => {
-              const value = e.target.value;
+      <Container>
+        <Filter
+          items={PUBLISHED_CATEGORIES}
+          onSelect={(e: { target: { value: string } }) => {
+            const value = e.target.value;
 
-              if (!selectedCategories.includes(value)) {
-                setSelectedCategories([...selectedCategories, value]);
-              } else {
-                const arrayWithRemovedValue = selectedCategories.filter(
-                  category => category !== value
-                );
-                setSelectedCategories(arrayWithRemovedValue);
-              }
-            }}
-            onReset={() => setSelectedCategories([])}
-          />
-          <ArticlesListing items={articlesListing} />
-        </Container>
-      </Page>
+            if (!selectedCategories.includes(value)) {
+              setSelectedCategories([...selectedCategories, value]);
+            } else {
+              const arrayWithRemovedValue = selectedCategories.filter(
+                category => category !== value
+              );
+              setSelectedCategories(arrayWithRemovedValue);
+            }
+          }}
+          onReset={() => setSelectedCategories([])}
+        />
+        <ArticlesListing items={articlesListing} />
+      </Container>
     </MainLayout>
   );
 };

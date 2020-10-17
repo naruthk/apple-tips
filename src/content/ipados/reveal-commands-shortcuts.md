@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Press and hold the Command key to reveal commands shortcuts
+title: Reveal keyboard shortcuts by pressing down and holding the Command Key
 date: 2020-10-16
 author: Naruth Kongurai
 keyboardCommand: Command

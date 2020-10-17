@@ -1,13 +1,13 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 
-import Page from "../components/Page";
 import Container from "../components/Container";
-import IndexLayout from "../layouts";
+import MainLayout from "../layouts";
 
-import { MarkdownRemark } from "../typings";
+import { MarkdownRemark, Location } from "../typings";
 
 interface PageTemplateProps {
+  location: Location,
   data: {
     site: {
       siteMetadata: {
@@ -23,7 +23,7 @@ interface PageTemplateProps {
   };
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+const PageTemplate: React.FC<PageTemplateProps> = ({ location, data }) => {
   const {
     title,
     date,
@@ -34,20 +34,18 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   } = data.markdownRemark.frontmatter;
 
   return (
-    <IndexLayout>
-      <Page>
-        <Container>
-          <h1>{title}</h1>
-          <p>Author: {author}</p>
-          <p>Published: {date}</p>
-          {keyboardCommand && <p>Command: {keyboardCommand}</p>}
-          <p>Version: {osVersion}</p>
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-          {source && <p>Source: {source}</p>}
-        </Container>
-      </Page>
-    </IndexLayout>
+    <MainLayout location={location}>
+      <Container>
+        <h1>{title}</h1>
+        <p>Author: {author}</p>
+        <p>Published: {date}</p>
+        {keyboardCommand && <p>Command: {keyboardCommand}</p>}
+        <p>Version: {osVersion}</p>
+        {/* eslint-disable-next-line react/no-danger */}
+        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        {source && <p>Source: {source}</p>}
+      </Container>
+    </MainLayout>
   );
 };
 
