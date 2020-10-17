@@ -19,7 +19,9 @@ const StyledListItem = styled.li`
   list-style-type: none;
   display: flex;
 
-  width: 50%;
+  @media (min-width: ${getEmSize(breakpoints.sm)}em) {
+    width: 50%
+  }
 
   @media (min-width: ${getEmSize(breakpoints.md)}em) {
     width: 33.33%
