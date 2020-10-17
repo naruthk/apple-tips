@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { getEmSize } from "../../styles/mixins";
+import { getemsize } from "../../styles/mixins";
 import { colors, breakpoints } from "../../styles/variables";
 
 const StyledSearchContainer = styled.div`
@@ -16,11 +16,13 @@ const StyledSearchInput = styled.input`
   border: 2px solid ${colors.gray.dark};
   border-radius: 20px;
 
-  :focus, :active, :hover {
+  :focus,
+  :active,
+  :hover {
     color: ${colors.white};
   }
-  
-  @media (min-width: ${getEmSize(breakpoints.md)}em) {
+
+  @media (min-width: ${getemsize(breakpoints.md)}em) {
     padding-right: 5rem;
     padding-left: 1.25rem;
   }

@@ -1,9 +1,4 @@
 import React, { Fragment, FC, useState } from "react";
-import styled from "@emotion/styled";
-
-const StyledContainer = styled.div`
-  width: 100%;
-`;
 
 interface FilterProps {
   items: Array<string>;
@@ -41,11 +36,13 @@ const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
   ));
 
   return (
-    <form onReset={e => {
-      e.preventDefault();
-      onReset(e);
-      setCheckedValues([]);
-    }}>
+    <form
+      onReset={e => {
+        e.preventDefault();
+        onReset(e);
+        setCheckedValues([]);
+      }}
+    >
       <ul>
         <button type="reset">All</button>
         {selectableFilters}

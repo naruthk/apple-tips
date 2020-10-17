@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Page from "../components/Page";
 import Container from "../components/Container";
@@ -30,10 +30,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
-  const {
-    selectedCategories,
-    setSelectedCategories
-  } = useFilterHook([]);
+  const { selectedCategories, setSelectedCategories } = useFilterHook([]);
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
 

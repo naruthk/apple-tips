@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Link } from "gatsby";
 
 import { breakpoints, dimensions, colors } from "../../styles/variables";
-import { getEmSize } from "../../styles/mixins";
+import { getemsize } from "../../styles/mixins";
 
 const StyledContainer = styled.header`
   margin: 2rem 0;
@@ -19,21 +19,23 @@ const StyledListItem = styled.li`
   list-style-type: none;
   display: flex;
 
-  @media (min-width: ${getEmSize(breakpoints.sm)}em) {
-    width: 50%
+  @media (min-width: ${getemsize(breakpoints.sm)}em) {
+    width: 50%;
   }
 
-  @media (min-width: ${getEmSize(breakpoints.md)}em) {
-    width: 33.33%
+  @media (min-width: ${getemsize(breakpoints.md)}em) {
+    width: 33.33%;
   }
 
   a {
     background-color: ${colors.yellow};
   }
+
   :nth-of-type(even) a {
     background-color: ${colors.green};
     margin-right: 0;
   }
+
   :nth-of-type(3n) a {
     background-color: ${colors.blue};
     margin-right: 0;
@@ -48,14 +50,14 @@ const StyledLinkContainer = styled(Link)`
   color: ${colors.black};
   border-radius: 10px;
 
-  :hover, :visited {
+  :hover,
+  :visited {
     text-decoration: none;
   }
 
-  @media (min-width: ${getEmSize(breakpoints.sm)}em) {
+  @media (min-width: ${getemsize(breakpoints.sm)}em) {
     margin-right: 1rem;
   }
-
 `;
 
 const StyledLinkHeading = styled.h2`

@@ -5,8 +5,7 @@ import Container from "../Container";
 import { dimensions, colors } from "../../styles/variables";
 
 const StyledFooter = styled.footer`
-  margin: 2rem 0;
-  padding: 0 ${dimensions.containerPadding}rem;
+  margin-top: 2rem;
   background-color: ${colors.black};
 `;
 
@@ -15,6 +14,7 @@ const FooterInner = styled(Container)`
   flex-direction: column;
   align-items: center;
   color: ${colors.white};
+  padding: ${dimensions.containerPadding}rem 0;
 `;
 
 const ContributionsLink = styled(Link)`
@@ -24,7 +24,7 @@ const ContributionsLink = styled(Link)`
   color: ${colors.brand};
   font-weight: 600;
   font-size: ${dimensions.fontSize.large}px;
-  
+
   &:hover,
   &:focus {
     text-decoration: none;
@@ -51,9 +51,4 @@ const AuthorCredit = styled.p`
   }
 `;
 
-export {
-  StyledFooter,
-  FooterInner,
-  ContributionsLink,
-  AuthorCredit
-};
+export { StyledFooter, FooterInner, ContributionsLink, AuthorCredit };

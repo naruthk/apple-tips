@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Helmet from "react-helmet";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
 import "modern-normalize";
 import "../styles/normalize";
@@ -20,7 +20,7 @@ interface StaticQueryProps {
         copyright: string;
         applyForContributions: string;
         email: string;
-      }
+      };
     };
   };
 }

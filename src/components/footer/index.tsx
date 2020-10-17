@@ -8,14 +8,9 @@ import {
   AuthorCredit
 } from "./style";
 
-interface FooterProps {
-  copyrightText: string;
-  contributionsText: string;
-}
-
 const CONTRIBUTIONS_PAGE_URL = "/contributions";
 
-const Footer: FC<FooterProps> = () => {
+const Footer: FC = () => {
   const queriedData = useStaticQuery(graphql`
     query FooterDataForQuery {
       site {

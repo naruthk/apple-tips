@@ -11,7 +11,7 @@ const SearchInput: FC = () => {
   const { DEFAULT_PLACEHOLDER, availableDataForQuerying } = useSearchHook();
 
   /**
-   * Initialize a Fuse instance with "keys" properties being the information 
+   * Initialize a Fuse instance with "keys" properties being the information
    *     that we allow the user to search for
    */
   const fuse = useMemo(
@@ -51,7 +51,6 @@ const SearchInput: FC = () => {
     getMenuProps,
     getInputProps,
     getComboboxProps,
-    highlightedIndex,
     getItemProps
   } = useCombobox({
     items: inputItems,
@@ -65,7 +64,10 @@ const SearchInput: FC = () => {
   return (
     <Fragment>
       <StyledSearchContainer {...getComboboxProps()}>
-        <StyledSearchInput {...getInputProps()} placeholder={DEFAULT_PLACEHOLDER} />
+        <StyledSearchInput
+          {...getInputProps()}
+          placeholder={DEFAULT_PLACEHOLDER}
+        />
       </StyledSearchContainer>
       <ul {...getMenuProps()}>
         {isOpen &&

@@ -29,9 +29,4 @@ const Tagline = styled.p`
   line-height: ${dimensions.lineHeight.regular};
 `;
 
-export {
-  StyledHeader,
-  HeaderInner,
-  HomepageLink,
-  Tagline
-};
+export { StyledHeader, HeaderInner, HomepageLink, Tagline };

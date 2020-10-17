@@ -1,5 +1,5 @@
 import { dimensions, fonts, colors, breakpoints } from "./variables";
-import { getEmSize } from "./mixins";
+import { getemsize } from "./mixins";
 
 export default `
   html {
@@ -152,7 +152,7 @@ export default `
       }
     }
 
-    @media (min-width: ${getEmSize(breakpoints.md)}em) {
+    @media (min-width: ${getemsize(breakpoints.md)}em) {
       padding-right: 5rem;
       padding-left: 1.25rem;
     }
