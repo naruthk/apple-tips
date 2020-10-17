@@ -14,6 +14,9 @@ const HeaderInner = styled(Container)`
 `;
 
 const HomepageLink = styled(Link)`
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 700;
   color: ${colors.white};
 
   &:hover,

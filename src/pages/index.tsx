@@ -12,6 +12,9 @@ import { CollectionCategories, PUBLISHED_CATEGORIES } from "../constants";
 import useFilterHook from "../hooks/useFilterHook";
 
 interface IndexPageProps {
+  location: {
+    pathname: string;
+  },
   data: {
     allMarkdownRemark: {
       edges: [
@@ -29,7 +32,7 @@ interface IndexPageProps {
   };
 }
 
-const IndexPage: FC<IndexPageProps> = ({ data }) => {
+const IndexPage: FC<IndexPageProps> = ({ location, data }) => {
   const { selectedCategories, setSelectedCategories } = useFilterHook([]);
 
   const allTipsTricksData = data.allMarkdownRemark.edges;
@@ -57,7 +60,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
     });
 
   return (
-    <MainLayout>
+    <MainLayout location={location}>
       <Page>
         <Container>
           <Filter

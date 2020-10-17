@@ -8,7 +8,7 @@ import { StyledSearchContainer, StyledSearchInput } from "./style";
 import { Frontmatter, Fields } from "../../typings";
 
 const SearchInput: FC = () => {
-  const { DEFAULT_PLACEHOLDER, availableDataForQuerying } = useSearchHook();
+  const { searchPlaceHolderText, availableDataForQuerying } = useSearchHook();
 
   /**
    * Initialize a Fuse instance with "keys" properties being the information
@@ -55,6 +55,8 @@ const SearchInput: FC = () => {
   } = useCombobox({
     items: inputItems,
     onSelectedItemChange: ({ selectedItem }) => {
+      // @ts-ignore: Can't get downshift to understand
+      // that the value is actually not undefined
       handleSelectedItemChange(selectedItem);
     },
     onInputValueChange: ({ inputValue = "" }) =>
@@ -66,7 +68,8 @@ const SearchInput: FC = () => {
       <StyledSearchContainer {...getComboboxProps()}>
         <StyledSearchInput
           {...getInputProps()}
-          placeholder={DEFAULT_PLACEHOLDER}
+          autoFocus
+          placeholder={searchPlaceHolderText}
         />
       </StyledSearchContainer>
       <ul {...getMenuProps()}>

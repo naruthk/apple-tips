@@ -1,13 +1,18 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-const DEFAULT_PLACEHOLDER = "Search for tips and tricks";
-
 /**
  * A custom hook for fetching published articles and providing them as an object to be used
  */
 const useSearchHook = () => {
   const queriedData = useStaticQuery(graphql`
     query AvailableDataForQuerying {
+      site {
+        siteMetadata {
+          texts {
+            searchPlaceHolderText
+          }
+        }
+      }
       allMarkdownRemark {
         nodes {
           id
@@ -25,7 +30,7 @@ const useSearchHook = () => {
   `);
 
   return {
-    DEFAULT_PLACEHOLDER, // The value that becomes the placeholder for the search input
+    searchPlaceHolderText: queriedData.site.siteMetadata.texts.searchPlaceHolderText,
     availableDataForQuerying: queriedData.allMarkdownRemark.nodes
   };
 };
