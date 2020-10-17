@@ -6,6 +6,7 @@ import "modern-normalize";
 import "../styles/normalize";
 
 import Header from "../components/header";
+import Footer from "../components/footer";
 import LayoutRoot from "../components/LayoutRoot";
 import LayoutMain from "../components/LayoutMain";
 
@@ -15,6 +16,11 @@ interface StaticQueryProps {
       title: string;
       description: string;
       keywords: string;
+      texts: {
+        copyright: string;
+        applyForContributions: string;
+        email: string;
+      }
     };
   };
 }
@@ -27,6 +33,11 @@ const MainLayout: FC = ({ children }) => (
           siteMetadata {
             title
             description
+            texts {
+              copyright
+              applyForContributions
+              builtWithGatsby
+            }
           }
         }
       }
@@ -45,9 +56,7 @@ const MainLayout: FC = ({ children }) => (
         />
         <Header title={data.site.siteMetadata.title} />
         <LayoutMain>{children}</LayoutMain>
-        <Link to="/contributions">
-          Have a few tips or tricks to share with us?
-        </Link>
+        <Footer />
       </LayoutRoot>
     )}
   />

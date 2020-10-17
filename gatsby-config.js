@@ -10,6 +10,11 @@ module.exports = {
       name: 'Naruth Kongurai',
       url: 'https://www.naruth.dev',
       email: 'nkongurai@gmail.com'
+    },
+    texts: {
+      copyright: "2020",
+      applyForContributions: "Help grow our resources by sharing a tip with us",
+      builtWithGatsby: "Powered by Gatsby.js"
     }
   },
   plugins: [

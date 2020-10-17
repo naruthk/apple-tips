@@ -32,16 +32,18 @@ const StyledListItem = styled.li`
   }
   :nth-of-type(even) a {
     background-color: ${colors.green};
+    margin-right: 0;
   }
   :nth-of-type(3n) a {
     background-color: ${colors.blue};
+    margin-right: 0;
   }
 `;
 
 const StyledLinkContainer = styled(Link)`
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   color: ${colors.black};
   border-radius: 10px;
@@ -49,6 +51,11 @@ const StyledLinkContainer = styled(Link)`
   :hover, :visited {
     text-decoration: none;
   }
+
+  @media (min-width: ${getEmSize(breakpoints.sm)}em) {
+    margin-right: 1rem;
+  }
+
 `;
 
 const StyledLinkHeading = styled.h2`
