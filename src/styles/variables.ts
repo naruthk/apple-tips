@@ -2,7 +2,6 @@
 
 export const colors = {
   brand: "#F6A435",
-  accent: "#ffb238",
   success: "#37b635",
   warning: "#D96477",
   ui: {
@@ -16,8 +15,9 @@ export const colors = {
     copy: "hsla(270, 15.797828016000002%, 0%, 0.88)",
     calm: "rgba(0, 0, 0, 0.54)"
   },
-  green: "#0F8860",
-  yellow: "#FD9E1D",
+  green: "#42FFA0",
+  blue: "#145DFC",
+  yellow: "#ffb238",
   white: "#fff",
   black: "#000"
 };
@@ -46,6 +46,7 @@ export const widths = {
 
 export const dimensions = {
   fontSize: {
+    small: 14,
     regular: 16,
     large: 18
   },

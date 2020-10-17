@@ -7,7 +7,9 @@ import {
   StyledListItem,
   StyledLinkContainer,
   StyledLinkHeading,
-  StyledLinkText
+  StyledLinkText,
+  StyledCategoryTag,
+  HashtagIcon
 } from "./style";
 
 interface ArticlesListProps {
@@ -23,6 +25,7 @@ const ArticlesListing: FC<ArticlesListProps> = ({ items }) => (
             <StyledLinkContainer to={article.slug}>
               <StyledLinkHeading>{article.title}</StyledLinkHeading>
               <StyledLinkText>{article.description}</StyledLinkText>
+              <StyledCategoryTag><HashtagIcon>#</HashtagIcon>{article.collection}</StyledCategoryTag>
             </StyledLinkContainer>
           </StyledListItem>
         ))}
