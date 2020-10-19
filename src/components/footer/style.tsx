@@ -5,7 +5,7 @@ import Container from "../Container";
 import { dimensions, colors, radius } from "../../styles/variables";
 
 const StyledFooter = styled.footer`
-  margin-top: 2rem;
+  margin-top: 5rem;
   background-color: ${colors.black};
 `;
 
@@ -79,6 +79,9 @@ const StyledLegalSection = styled.p`
   margin: 1.5rem;
   font-size: ${dimensions.fontSize.xsmall}px;
   font-weight: 300;
+  color: ${colors.gray.light};
+  max-width: 50em;
+  text-align: center;
 `;
 
 export {

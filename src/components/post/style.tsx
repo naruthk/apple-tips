@@ -22,13 +22,13 @@ const StyledTitle = styled.h1`
   margin-bottom: 2rem;
 
   @media (min-width: ${getemsize(breakpoints.sm)}em) {
-    margin-right: 2rem;
+    margin: 2rem 2rem 0 0;
   }
 `;
 
 const StyledGridContainer = styled.div`
   @media (min-width: ${getemsize(breakpoints.sm)}em) {
-    margin-left: 2rem;
+    margin: 2rem 0 0 2rem;
   }
 `;
 
@@ -71,6 +71,8 @@ const CommandKeyContainer = styled.div`
 `;
 
 const StyledMetaItem = styled.div`
+  width: 50%;
+
   span {
     display: block;
     margin-bottom: 0.5rem;

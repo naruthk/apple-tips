@@ -1,10 +1,18 @@
 import React, { useState, useMemo, FC, Fragment } from "react";
 import { Link, navigate } from "gatsby";
+import { FaSearch } from 'react-icons/fa';
 import Fuse from "fuse.js";
 import { useCombobox } from "downshift";
 
 import useSearchHook from "../../hooks/useSearchHook";
-import { StyledSearchContainer, StyledSearchInput } from "./style";
+import {
+  StyledSearchRootContainer,
+  StyledSearchContainer,
+  StyledSearchInput,
+  StyledSearchLabel,
+  StyledSearchResultsListing,
+  StyledSearchResultItem
+} from "./style";
 import { Frontmatter, Fields } from "../../typings";
 
 const SearchInput: FC = () => {
@@ -48,6 +56,7 @@ const SearchInput: FC = () => {
 
   const {
     isOpen,
+    getLabelProps,
     getMenuProps,
     getInputProps,
     getComboboxProps,
@@ -64,15 +73,18 @@ const SearchInput: FC = () => {
   });
 
   return (
-    <Fragment>
+    <StyledSearchRootContainer>
       <StyledSearchContainer {...getComboboxProps()}>
+        <StyledSearchLabel {...getLabelProps()}>
+          <FaSearch />
+        </StyledSearchLabel>
         <StyledSearchInput
           {...getInputProps()}
           autoFocus
           placeholder={searchPlaceHolderText}
         />
       </StyledSearchContainer>
-      <ul {...getMenuProps()}>
+      <StyledSearchResultsListing {...getMenuProps()} showBottomBorder={isOpen}>
         {isOpen &&
           inputItems.map(
             (
@@ -81,23 +93,21 @@ const SearchInput: FC = () => {
             ) => {
               const { id, fields, frontmatter } = node;
               return (
-                <Link
-                  key={id}
-                  to={fields.slug}
-                  {...getItemProps({ item: node, index })}
-                >
-                  <li>
-                    <div>
-                      <h2>{frontmatter.title}</h2>
-                      <p>{frontmatter.description}</p>
-                    </div>
-                  </li>
-                </Link>
+                <li>
+                  <StyledSearchResultItem
+                    key={id}
+                    to={fields.slug}
+                    {...getItemProps({ item: node, index })}
+                  >
+                    <h3>{frontmatter.title}</h3>
+                    <p>{frontmatter.description}</p>
+                  </StyledSearchResultItem>
+                </li>
               );
             }
           )}
-      </ul>
-    </Fragment>
+      </StyledSearchResultsListing>
+    </StyledSearchRootContainer>
   );
 };
 
