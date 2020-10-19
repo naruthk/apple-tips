@@ -23,7 +23,7 @@ export default `
     overflow-y: scroll;
     font-family: ${fonts.sansSerif};
     color: ${colors.white};
-    background-color: ${colors.gray.dark};
+    background-color: ${colors.gray.veryDark};
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
   }

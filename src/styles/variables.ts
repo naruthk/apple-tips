@@ -2,26 +2,33 @@
 
 export const colors = {
   brand: "#F6A435",
-  hero: "#ffbc98",
-  success: "#37b635",
-  warning: "#D96477",
+  alerts: {
+    success: "#37b635",
+    warning: "#D96477",
+  },
   ui: {
+    hero: "#ffbc98",
     bright: "#e0d6eb",
     light: "#f5f3f7",
     whisper: "#fbfafc"
   },
   gray: {
     light: "#C1C1BF",
+    calm: "rgba(0, 0, 0, 0.54)",
+    veryDark: "hsla(270, 17.119554496%, 0%, 0.98)",
     dark: "hsla(270, 17.119554496%, 0%, 0.92)",
-    copy: "hsla(270, 15.797828016000002%, 0%, 0.88)",
-    calm: "rgba(0, 0, 0, 0.54)"
+    medium: "rgba(24, 24, 24, 0.84)"
+  },
+  cards: {
+    green: "#42FFA0",
+    pink: "#ffd4d4",
+    purple: "#f26fff",
+    aqua: "#b1fff9",
+    blue: "#61dfff",
+    yellow: "#faff38",
+    orange: "#ff7e61"
   },
   navy: "#11112f",
-  green: "#42FFA0",
-  pink: "#ffd4d4",
-  aqua: "#b1fff9",
-  blue: "#145DFC",
-  yellow: "#ffb238",
   white: "#fff",
   black: "#000"
 };

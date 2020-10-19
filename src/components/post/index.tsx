@@ -6,6 +6,7 @@ import {
   StyledPostContainer,
   StyledTitle,
   StyledMetaContainer,
+  StyledGridContainer,
   CommandKeyContainer
 } from "./style";
 
@@ -27,15 +28,17 @@ const Post: FC<PostProps> = ({ postData, html }) => {
   return (
     <StyledPostContainer>
       <StyledTitle>{title}</StyledTitle>
-      {/* eslint-disable-next-line react/no-danger */}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      <StyledMetaContainer>
-        <p>Suggested by {author}</p>
-        <p>Published: {date}</p>
-        <CommandKeys keys={[keyboardCommand]} />
-        <p>Version: {osVersion}</p>
-        {source && <p>Source: {source}</p>}
-      </StyledMetaContainer>
+      <StyledGridContainer>
+        {/* eslint-disable-next-line react/no-danger */}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <StyledMetaContainer>
+          <p>Suggested by {author}</p>
+          <p>Published: {date}</p>
+          <CommandKeys keys={[keyboardCommand]} />
+          <p>Version: {osVersion}</p>
+          {source && <p>Source: {source}</p>}
+        </StyledMetaContainer>
+      </StyledGridContainer>
     </StyledPostContainer>
   );
 }

@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
 const CallToActionContainer = styled.div`
   margin-top: -5rem;
   padding: 1rem;
-  background-color: ${colors.hero};
+  background-color: ${colors.ui.hero};
   border-bottom: 2px solid ${colors.white};
 `;
 
@@ -49,6 +49,8 @@ const ActionLink = styled.span`
 
   :hover {
     border: 1px solid ${colors.black};
+    background-color: ${colors.black};
+    color: ${colors.white};
   }
 
   ::after {

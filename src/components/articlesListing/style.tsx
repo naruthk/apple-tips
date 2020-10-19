@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 
 import { breakpoints, dimensions, colors } from "../../styles/variables";
 import { getemsize } from "../../styles/mixins";
+import { RANDOM_COLORS } from "./constants";
 
 const StyledContainer = styled.header`
   margin: 2rem 0;
@@ -27,13 +28,10 @@ const StyledListItem = styled.li`
   @media (min-width: ${getemsize(breakpoints.md)}em) {
     width: 33.33%;
   }
-
-  a {
-    background-color: ${colors.gray.calm};
-  }
 `;
-
+  
 const StyledLinkContainer = styled(Link)`
+  background-color: ${props => `${RANDOM_COLORS[props.posIndex]}`};
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -48,18 +46,11 @@ const StyledLinkContainer = styled(Link)`
 
 const StyledLinkHeading = styled.h2`
   font-size: ${dimensions.fontSize.large}px !important;
-  color: ${colors.white};
-`;
-
-const StyledLinkText = styled.p`
-  flex: 1 0 auto;
-  margin-top: 1rem;
-  color: ${colors.gray.light};
 `;
 
 const StyledCategoryTag = styled.p`
   font-size: ${dimensions.fontSize.small}px !important;
-  color: ${colors.brand};
+  color: ${colors.black};
   text-align: right;
 `;
 
@@ -73,7 +64,6 @@ export {
   StyledListItem,
   StyledLinkContainer,
   StyledLinkHeading,
-  StyledLinkText,
   StyledCategoryTag,
   HashtagIcon
 };

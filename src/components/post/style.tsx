@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
-import { colors, dimensions } from "../../styles/variables";
+import { breakpoints, colors, dimensions } from "../../styles/variables";
+import { getemsize } from "../../styles/mixins";
 
 const StyledPostContainer = styled.article`
 `;
@@ -12,9 +13,14 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledMetaContainer = styled.section`
-  border-top: 1px solid ${colors.black};
   padding-top: 1rem;
   margin-top: 2rem;
+
+  @media (min-width: ${getemsize(breakpoints.sm)}em) {
+    margin: 0 0 0 1rem;
+    padding: 0.5rem;
+    border: 1px solid ${colors.brand};
+  }
 `;
 
 const CommandKeyContainer = styled.div`
@@ -22,9 +28,20 @@ const CommandKeyContainer = styled.div`
   height: 100px;
 `;
 
+const StyledGridContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media (min-width: ${getemsize(breakpoints.sm)}em) {
+    flex-wrap: nowrap;
+  }
+`;
+
 export {
   StyledPostContainer,
   StyledTitle,
   StyledMetaContainer,
+  StyledGridContainer,
   CommandKeyContainer
 };
