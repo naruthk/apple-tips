@@ -9,6 +9,7 @@ import {
   StyledMetaContainer,
   StyledPostText,
   StyledGridContainer,
+  StyledMetaItem,
   CommandKeyContainer
 } from "./style";
 
@@ -36,12 +37,34 @@ const Post: FC<PostProps> = ({ postData, html, collection }) => {
       <StyledGridContainer>
         {/* eslint-disable-next-line react/no-danger */}
         <StyledPostText dangerouslySetInnerHTML={{ __html: html }} />
+        {keyboardCommand && <CommandKeys keys={[keyboardCommand]} />}
         <StyledMetaContainer>
-          <p>Suggested by <Link to={`/author/${author}`} title={`Posts by ${author}`}>{author}</Link></p>
-          <p>Published: {date}</p>
-          {keyboardCommand && <CommandKeys keys={[keyboardCommand]} />}
-          <p>Version: <Link to={`/${collection}`} title={`See more posts on ${collection}`}>{osNameWithVersion}</Link></p>
-          {source && <p><a href={source} title={source} target="_blank" rel="nofollow">Source</a></p>}
+          <StyledMetaItem>
+            <p>
+              <span>Suggested by</span>
+              <Link to={`/author/${author}`} title={`Posts by ${author}`}>{author}</Link>
+            </p>
+          </StyledMetaItem>
+          <StyledMetaItem>
+            <p>
+              <span>Published on</span>
+              {date}
+            </p>
+          </StyledMetaItem>
+          <StyledMetaItem>
+            <p>
+              <span>Works on</span>
+              <Link to={`/${collection}`} title={`See more posts on ${collection}`}>{osNameWithVersion}</Link>
+            </p>
+          </StyledMetaItem>
+          {source && (
+            <StyledMetaItem>
+              <p>
+                <span>Source</span>
+                <a href={source} title={source} target="_blank" rel="nofollow">Source</a>
+              </p>
+            </StyledMetaItem>
+          )}
         </StyledMetaContainer>
       </StyledGridContainer>
     </StyledPostContainer>

@@ -13,7 +13,7 @@ const StyledSearchInput = styled.input`
   outline: none;
   color: ${colors.gray.light};
   background-color: ${colors.gray.medium};
-  border: 2px solid ${colors.gray.medium};
+  border: 2px solid ${colors.gray.calm};
   border-radius: ${radius.container}px;
 
   :focus,

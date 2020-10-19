@@ -7,7 +7,8 @@ import {
   FooterInner,
   ContributionsLink,
   AuthorCredit,
-  ActionLink
+  ActionLink,
+  StyledLegalSection
 } from "./style";
 
 const CONTRIBUTIONS_PAGE_URL = "/contributions";
@@ -25,6 +26,7 @@ const Footer: FC = () => {
           }
           texts {
             copyright
+            legal
             applyForContributions
           }
         }
@@ -46,11 +48,12 @@ const Footer: FC = () => {
           </ContributionsLink>
         </CallToActionContainer>
         <AuthorCredit>
-          <span>Developed by </span>
+          <span>A fun side project by </span>
           <a href={author.url} title={`Homepage of ${author.name}`}>
             {author.name}
           </a>
         </AuthorCredit>
+        <StyledLegalSection>{texts.legal}</StyledLegalSection>
       </FooterInner>
     </StyledFooter>
   );

@@ -75,11 +75,18 @@ const AuthorCredit = styled.p`
   }
 `;
 
+const StyledLegalSection = styled.p`
+  margin: 1.5rem;
+  font-size: ${dimensions.fontSize.xsmall}px;
+  font-weight: 300;
+`;
+
 export {
   StyledFooter,
   CallToActionContainer,
   FooterInner,
   ContributionsLink,
   AuthorCredit,
-  ActionLink
+  ActionLink,
+  StyledLegalSection
 };
