@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React, { FC } from "react";
 import { Frontmatter } from "../../typings";
-import CommandKeys from "../commandKeys";
+import Keyboard from "../keyboard";
 
 import {
   StyledPostContainer,
@@ -9,59 +9,65 @@ import {
   StyledMetaContainer,
   StyledPostText,
   StyledGridContainer,
-  StyledMetaItem,
-  CommandKeyContainer
+  StyledMetaItem
 } from "./style";
 
 interface PostProps {
-  postData: Frontmatter,
+  postData: Frontmatter;
   html: string;
   collection: string;
 }
 
 const Post: FC<PostProps> = ({ postData, html, collection }) => {
-  const {
-    title,
-    date,
-    author,
-    keyboardCommand,
-    source,
-    osVersion
-  } = postData;
+  const { title, date, author, shortcuts, source, osVersion } = postData;
 
   const osNameWithVersion = `${collection} ${osVersion}`;
+
+  const readableDate = new Date(date).toLocaleDateString("en-us");
 
   return (
     <StyledPostContainer>
       <StyledTitle>{title}</StyledTitle>
       <StyledGridContainer>
-        {/* eslint-disable-next-line react/no-danger */}
-        <StyledPostText dangerouslySetInnerHTML={{ __html: html }} />
-        {keyboardCommand && <CommandKeys keys={[keyboardCommand]} />}
+        {/* @ts-ignore: Find way to resolve props and typescripts for styled-components */}
+        <StyledPostText
+          hasShortcuts={shortcuts}
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+        {shortcuts && <Keyboard keys={[...shortcuts]} />}
         <StyledMetaContainer>
           <StyledMetaItem>
             <p>
               <span>Suggested by</span>
-              <Link to={`/author/${author}`} title={`Posts by ${author}`}>{author}</Link>
+              <Link to={`/author/${author}`} title={`Posts by ${author}`}>
+                {author}
+              </Link>
             </p>
           </StyledMetaItem>
           <StyledMetaItem>
             <p>
               <span>Published on</span>
-              {date}
+              {readableDate}
             </p>
           </StyledMetaItem>
           <StyledMetaItem>
             <p>
               <span>Works on</span>
-              <Link to={`/${collection}`} title={`See more posts on ${collection}`}>{osNameWithVersion}</Link>
+              <Link
+                to={`/${collection}`}
+                title={`See more posts on ${collection}`}
+              >
+                {osNameWithVersion}
+              </Link>
             </p>
           </StyledMetaItem>
           {source && (
             <StyledMetaItem>
               <p>
                 <span>Source</span>
-                <a href={source} title={source} target="_blank" rel="nofollow">Source</a>
+                <a href={source} title={source} target="_blank" rel="nofollow">
+                  Source
+                </a>
               </p>
             </StyledMetaItem>
           )}
@@ -69,6 +75,6 @@ const Post: FC<PostProps> = ({ postData, html, collection }) => {
       </StyledGridContainer>
     </StyledPostContainer>
   );
-}
+};
 
 export default Post;

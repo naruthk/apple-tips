@@ -42,9 +42,7 @@ const Footer: FC = () => {
         <CallToActionContainer>
           <ContributionsLink to={CONTRIBUTIONS_PAGE_URL} title="Contribute">
             <p>{texts.applyForContributions}</p>
-            <ActionLink>
-              Contribute
-            </ActionLink>
+            <ActionLink>Contribute</ActionLink>
           </ContributionsLink>
         </CallToActionContainer>
         <AuthorCredit>

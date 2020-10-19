@@ -5,8 +5,8 @@ import {
   breakpoints,
   colors,
   dimensions,
-  radius 
- } from "../../styles/variables";
+  radius
+} from "../../styles/variables";
 import { getemsize } from "../../styles/mixins";
 import { RANDOM_COLORS } from "./constants";
 
@@ -34,7 +34,7 @@ const StyledListItem = styled.li`
     width: 33.33%;
   }
 `;
-  
+
 const StyledLinkContainer = styled(Link)`
   background-color: ${props => `${RANDOM_COLORS[props.posIndex]}`};
   display: flex;

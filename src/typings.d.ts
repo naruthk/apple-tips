@@ -11,7 +11,7 @@ export interface Frontmatter {
   date: string;
   author?: string;
   description: string;
-  keyboardCommand?: string;
+  shortcuts?: string;
   source?: string;
   osVersion: string;
 }

@@ -4,7 +4,7 @@ export const colors = {
   brand: "#F6A435",
   alerts: {
     success: "#37b635",
-    warning: "#D96477",
+    warning: "#D96477"
   },
   ui: {
     hero: "#ffbc98",

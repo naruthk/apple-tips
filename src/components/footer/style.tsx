@@ -56,7 +56,7 @@ const ActionLink = styled.span`
   ::after {
     content: ">";
     margin-left: 10px;
-  }  
+  }
 `;
 
 const AuthorCredit = styled.p`

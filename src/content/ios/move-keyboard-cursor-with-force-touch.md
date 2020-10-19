@@ -3,7 +3,7 @@ layout: page
 title: Move keyboard cursor by pressing down (Force Touch) on the keyboard
 date: 2020-10-16
 author: Naruth Kongurai
-keyboardCommand: null
+shortcuts: null
 description: This might be easier than trying to pinpoint a specific character
 source: null
 osVersion: 14

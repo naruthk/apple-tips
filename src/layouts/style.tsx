@@ -22,5 +22,8 @@ const StyledChildContainer = styled.div`
   margin-bottom: 3rem;
 `;
 
-
-export { StyledRootLayoutContainer, StyledInnerLayoutContainer, StyledChildContainer };
+export {
+  StyledRootLayoutContainer,
+  StyledInnerLayoutContainer,
+  StyledChildContainer
+};

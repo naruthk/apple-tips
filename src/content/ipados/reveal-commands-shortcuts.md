@@ -3,7 +3,7 @@ layout: page
 title: Reveal keyboard shortcuts by pressing down and holding the Command Key
 date: 2020-10-16
 author: Naruth Kongurai
-keyboardCommand: Command
+shortcuts: [Command]
 description: Works across many supported apps on iOS 14
 source: null
 osVersion: 14

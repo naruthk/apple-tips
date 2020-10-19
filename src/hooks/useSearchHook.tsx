@@ -30,7 +30,8 @@ const useSearchHook = () => {
   `);
 
   return {
-    searchPlaceHolderText: queriedData.site.siteMetadata.texts.searchPlaceHolderText,
+    searchPlaceHolderText:
+      queriedData.site.siteMetadata.texts.searchPlaceHolderText,
     availableDataForQuerying: queriedData.allMarkdownRemark.nodes
   };
 };

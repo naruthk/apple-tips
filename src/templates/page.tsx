@@ -9,7 +9,7 @@ import Post from "../components/post";
 import { CollectionCategories } from "../constants";
 
 interface PageTemplateProps {
-  location: Location,
+  location: Location;
   data: {
     site: {
       siteMetadata: {
@@ -33,7 +33,11 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ location, data }) => {
   return (
     <MainLayout location={location}>
       <Container>
-        <Post postData={frontmatter} html={html} collection={exactLetterCasing} />
+        <Post
+          postData={frontmatter}
+          html={html}
+          collection={exactLetterCasing}
+        />
       </Container>
     </MainLayout>
   );
@@ -64,7 +68,7 @@ export const query = graphql`
         date
         author
         description
-        keyboardCommand
+        shortcuts
         source
         osVersion
       }

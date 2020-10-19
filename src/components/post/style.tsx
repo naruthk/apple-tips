@@ -4,8 +4,8 @@ import {
   breakpoints,
   colors,
   dimensions,
-  radius 
- } from "../../styles/variables";
+  radius
+} from "../../styles/variables";
 import { getemsize } from "../../styles/mixins";
 
 const StyledPostContainer = styled.article`
@@ -19,6 +19,7 @@ const StyledPostContainer = styled.article`
 const StyledTitle = styled.h1`
   font-size: ${dimensions.headingSizes.h1}rem;
   color: ${colors.ui.hero};
+  padding-bottom: 2rem;
   margin-bottom: 2rem;
 
   @media (min-width: ${getemsize(breakpoints.sm)}em) {
@@ -33,7 +34,8 @@ const StyledGridContainer = styled.div`
 `;
 
 const StyledPostText = styled.div`
-  margin-top: 0.5rem;
+  margin: 1rem 0;
+  ${props => props.hasShortcuts && "padding-bottom: 1rem;"}
 `;
 
 const StyledMetaContainer = styled.section`
@@ -46,7 +48,7 @@ const StyledMetaContainer = styled.section`
 
   padding-top: 1rem;
   margin-top: 2rem;
-  border-top: 5px solid ${colors.navy};
+  border-top: 1px solid ${colors.ui.hero};
   font-size: ${dimensions.fontSize.small}px;
   color: ${colors.white};
 

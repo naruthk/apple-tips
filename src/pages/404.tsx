@@ -7,7 +7,7 @@ import MainLayout from "../layouts";
 interface NotFoundPageProps {
   location: {
     pathname: string;
-  }
+  };
 }
 
 const NotFoundPage: FC<NotFoundPageProps> = ({ location }) => (

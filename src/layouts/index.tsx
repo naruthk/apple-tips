@@ -34,7 +34,7 @@ interface StaticQueryProps {
 interface MainLayoutProps {
   location: {
     pathname: string;
-  }
+  };
 }
 
 const MainLayout: FC<MainLayoutProps> = ({ location, children }) => {
@@ -69,12 +69,13 @@ const MainLayout: FC<MainLayoutProps> = ({ location, children }) => {
               },
               { name: "keywords", content: data.site.siteMetadata.keywords }
             ]}
-            />
-          <Header title={data.site.siteMetadata.title} showTagline={isRootPage} />
+          />
+          <Header
+            title={data.site.siteMetadata.title}
+            showTagline={isRootPage}
+          />
           <StyledInnerLayoutContainer>
-            <StyledChildContainer>
-              {children}
-            </StyledChildContainer>
+            <StyledChildContainer>{children}</StyledChildContainer>
           </StyledInnerLayoutContainer>
           <Footer />
         </StyledRootLayoutContainer>

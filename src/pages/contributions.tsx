@@ -6,7 +6,7 @@ import MainLayout from "../layouts";
 interface ContributionsPageProps {
   location: {
     pathname: string;
-  }
+  };
 }
 
 const ContributionsPage: FC<ContributionsPageProps> = ({ location }) => (

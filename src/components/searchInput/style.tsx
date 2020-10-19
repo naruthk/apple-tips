@@ -54,8 +54,9 @@ const StyledSearchResultsListing = styled.ul`
   z-index: 10;
   border-bottom-left-radius: ${radius.container}px;
   border-bottom-right-radius: ${radius.container}px;
-  border-bottom: ${props => props.showBottomBorder && `10px solid ${colors.brand}`};
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,0.03);
+  border-bottom: ${props =>
+    props.showBottomBorder && `10px solid ${colors.brand}`};
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.03);
   list-style-type: none;
 `;
 

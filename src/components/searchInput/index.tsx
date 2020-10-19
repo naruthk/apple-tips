@@ -1,6 +1,6 @@
 import React, { useState, useMemo, FC, Fragment } from "react";
 import { Link, navigate } from "gatsby";
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch } from "react-icons/fa";
 import Fuse from "fuse.js";
 import { useCombobox } from "downshift";
 
