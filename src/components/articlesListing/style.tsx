@@ -1,7 +1,12 @@
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
 
-import { breakpoints, dimensions, colors } from "../../styles/variables";
+import {
+  breakpoints,
+  colors,
+  dimensions,
+  radius 
+ } from "../../styles/variables";
 import { getemsize } from "../../styles/mixins";
 import { RANDOM_COLORS } from "./constants";
 
@@ -36,7 +41,7 @@ const StyledLinkContainer = styled(Link)`
   flex-direction: column;
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 10px;
+  border-radius: ${radius.card}px;
 
   :hover,
   :visited {

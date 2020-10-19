@@ -6,6 +6,7 @@ import MainLayout from "../layouts";
 
 import { MarkdownRemark, Location } from "../typings";
 import Post from "../components/post";
+import { CollectionCategories } from "../constants";
 
 interface PageTemplateProps {
   location: Location,
@@ -25,12 +26,14 @@ interface PageTemplateProps {
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ location, data }) => {
-  const { frontmatter, html } = data.markdownRemark;
+  const { frontmatter, html, fields } = data.markdownRemark;
+
+  const exactLetterCasing = CollectionCategories[fields.collection];
 
   return (
     <MainLayout location={location}>
       <Container>
-        <Post postData={frontmatter} html={html} />
+        <Post postData={frontmatter} html={html} collection={exactLetterCasing} />
       </Container>
     </MainLayout>
   );
@@ -53,6 +56,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
+      fields {
+        collection
+      }
       frontmatter {
         title
         date

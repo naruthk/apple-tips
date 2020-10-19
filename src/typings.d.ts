@@ -16,16 +16,17 @@ export interface Frontmatter {
   osVersion: string;
 }
 
-export interface MarkdownRemark {
-  html: string;
-  excerpt?: string;
-  frontmatter: Frontmatter;
-}
-
 export interface Fields {
   collection: string;
   slug: string;
   layout?: string;
+}
+
+export interface MarkdownRemark {
+  html: string;
+  excerpt?: string;
+  frontmatter: Frontmatter;
+  fields: Fields;
 }
 
 export interface Article extends Frontmatter, Fields {}

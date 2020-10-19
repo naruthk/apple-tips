@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Link } from "gatsby";
 import Container from "../Container";
 
-import { dimensions, colors } from "../../styles/variables";
+import { dimensions, colors, radius } from "../../styles/variables";
 
 const StyledFooter = styled.footer`
   margin-top: 2rem;
@@ -30,7 +30,7 @@ const ContributionsLink = styled(Link)`
   align-items: center;
   margin: auto;
   padding: 1.5rem;
-  border-radius: 20px;
+  border-radius: ${radius.container}px;
   color: ${colors.black};
   font-weight: 600;
   font-size: ${dimensions.fontSize.large}px;

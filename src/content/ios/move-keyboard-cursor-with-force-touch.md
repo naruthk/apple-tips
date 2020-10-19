@@ -9,6 +9,6 @@ source: null
 osVersion: 14
 ---
 
-Force touching on a key of the keyboard allows you to move the cursur to any place within the input field.
+Force touching on a key of the keyboard allows you to move the cursor to any place within the input field.
 
 The same principle works on iPadOS too.

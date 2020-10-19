@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 import { getemsize } from "../../styles/mixins";
-import { colors, breakpoints } from "../../styles/variables";
+import { colors, breakpoints, radius } from "../../styles/variables";
 
 const StyledSearchContainer = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const StyledSearchInput = styled.input`
   color: ${colors.gray.light};
   background-color: ${colors.gray.medium};
   border: 2px solid ${colors.gray.medium};
-  border-radius: 20px;
+  border-radius: ${radius.container}px;
 
   :focus,
   :active,

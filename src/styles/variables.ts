@@ -75,3 +75,9 @@ export const dimensions = {
   },
   containerPadding: 1.2
 };
+
+export const radius = {
+  card: 10,
+  input: 20,
+  container: 20
+};
