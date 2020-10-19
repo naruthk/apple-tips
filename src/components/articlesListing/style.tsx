@@ -21,6 +21,7 @@ const StyledListItem = styled.li`
 
   @media (min-width: ${getemsize(breakpoints.sm)}em) {
     width: 50%;
+    padding: 0 5px;
   }
 
   @media (min-width: ${getemsize(breakpoints.md)}em) {
@@ -28,50 +29,37 @@ const StyledListItem = styled.li`
   }
 
   a {
-    background-color: ${colors.yellow};
-  }
-
-  :nth-of-type(even) a {
-    background-color: ${colors.green};
-    margin-right: 0;
-  }
-
-  :nth-of-type(3n) a {
-    background-color: ${colors.blue};
-    margin-right: 0;
+    background-color: ${colors.gray.calm};
   }
 `;
 
 const StyledLinkContainer = styled(Link)`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
   padding: 1rem;
-  color: ${colors.black};
+  margin-bottom: 1rem;
   border-radius: 10px;
 
   :hover,
   :visited {
     text-decoration: none;
   }
-
-  @media (min-width: ${getemsize(breakpoints.sm)}em) {
-    margin-right: 1rem;
-  }
 `;
 
 const StyledLinkHeading = styled.h2`
   font-size: ${dimensions.fontSize.large}px !important;
+  color: ${colors.white};
 `;
 
 const StyledLinkText = styled.p`
   flex: 1 0 auto;
-  color: ${colors.gray.calm};
+  margin-top: 1rem;
+  color: ${colors.gray.light};
 `;
 
 const StyledCategoryTag = styled.p`
   font-size: ${dimensions.fontSize.small}px !important;
-  color: ${colors.black};
+  color: ${colors.brand};
   text-align: right;
 `;
 

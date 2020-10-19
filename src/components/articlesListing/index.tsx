@@ -22,7 +22,7 @@ const ArticlesListing: FC<ArticlesListProps> = ({ items }) => (
       <StyledListing>
         {items.map(article => (
           <StyledListItem key={article.slug}>
-            <StyledLinkContainer to={article.slug}>
+            <StyledLinkContainer to={article.slug} title={article.title}>
               <StyledLinkHeading>{article.title}</StyledLinkHeading>
               <StyledLinkText>{article.description}</StyledLinkText>
               <StyledCategoryTag>

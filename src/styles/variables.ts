@@ -18,6 +18,8 @@ export const colors = {
   },
   navy: "#11112f",
   green: "#42FFA0",
+  pink: "#ffd4d4",
+  aqua: "#b1fff9",
   blue: "#145DFC",
   yellow: "#ffb238",
   white: "#fff",
