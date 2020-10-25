@@ -25,9 +25,9 @@ npm install
 gatsby develop
 ```
 
-## Contributions
+## Contributing
 
-Please visit the [Contributions](CONTRIBUTE.md) page to learn more.
+Please visit the [Contributing](contributing.md) section to learn more.
 
 ---
 

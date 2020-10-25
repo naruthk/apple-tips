@@ -1,8 +1,8 @@
-# Contributions
+# Contributing to Apple Tips
 
 **Apple Tips** is an open-sourced project, which means you are more than welcome to help grow this project even further!
 
-### Add a content and submit your PR
+### To add a new content
 
 This site reads all articles that are stored in the `./src/content` folder.
 
@@ -10,7 +10,7 @@ So simply create a new Markdown article and place your file inside the appropria
 
 Check out any existing articles inside the of `./src/content` folder as examples.
 
-### Markdown formatting
+### To format your Markdown document
 
 To keep things organized and to ensure that the site can read and parse the content of your article correctly, make sure the Frontmatter section at the top of your Markdown file contains the following structure:
 
@@ -40,7 +40,7 @@ The main content of your article goes here
 | source | url | Link to an external site |
 | osVersion | number | The operating system version that your tip applies to |
 
-### I want to add a new category
+### To add a new category
 
 To add a new category (a `Collection` such as `iOS`, `macOS`), you need to do update two places:
 
@@ -56,5 +56,3 @@ To add a new category (a `Collection` such as `iOS`, `macOS`), you need to do up
 },
 ```
 </details>
-
-###
