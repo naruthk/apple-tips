@@ -8,10 +8,9 @@ import {
   StyledLinkContainer,
   StyledLinkHeading,
   StyledCategoryTag,
-  HashtagIcon
+  HashtagIcon,
+  StyledArticleNotFound
 } from "./style";
-import { getRandomInt } from "../../utils/numbers";
-import { RANDOM_COLORS } from "./constants";
 
 interface ArticlesListProps {
   items: Array<Article>;
@@ -26,6 +25,7 @@ const ArticlesListing: FC<ArticlesListProps> = ({ items }) => (
             <StyledLinkContainer
               to={article.slug}
               title={article.title}
+              // @ts-ignore TO-DO: resolve style-component props error
               posIndex={index}
             >
               <StyledLinkHeading>{article.title}</StyledLinkHeading>
@@ -38,7 +38,10 @@ const ArticlesListing: FC<ArticlesListProps> = ({ items }) => (
         ))}
       </StyledListing>
     ) : (
-      <p>Nothing to show</p>
+      <StyledArticleNotFound>
+        <h3>It's embarrassing that we don't any content for this yet.</h3>
+        <p>Try removing a filter to broaden your search.</p>
+      </StyledArticleNotFound>
     )}
   </StyledContainer>
 );

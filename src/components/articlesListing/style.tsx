@@ -65,6 +65,19 @@ const HashtagIcon = styled.span`
   margin-right: 3px;
 `;
 
+const StyledArticleNotFound = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  text-align: center;
+
+  h3 {
+    color: ${colors.ui.hero};
+  }
+`;
+
 export {
   StyledContainer,
   StyledListing,
@@ -72,5 +85,6 @@ export {
   StyledLinkContainer,
   StyledLinkHeading,
   StyledCategoryTag,
-  HashtagIcon
+  HashtagIcon,
+  StyledArticleNotFound
 };
