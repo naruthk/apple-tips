@@ -1,12 +1,16 @@
 # Apple Tips
 
-A collection of tips and tricks for people who are using Apple products and ecosystem. Beautifully designed and presented to please us Apple fans.
+![Homepage](screenshots/homepage.png)
 
-This is a work in progress. Stay tune!
+A collection of tips and tricks for people who are using Apple products and ecosystem. Beautifully designed and presented to please us Apple fans.
 
 ## Inspiration
 
 I was heavily inspired by Dominik Ferber's [gatsby-starter-help-center](https://github.com/dferber90/gatsby-starter-help-center). His starter template allowed for an easy-to-setup Help Center. But I wanted to recreate my own version that I would have full control over its architecture and tooling. That was how Apple Tips was born.
+
+![Article detail](screenshots/article-detail.png)
+
+![Search](screenshots/search.png)
 
 ## Development
 
