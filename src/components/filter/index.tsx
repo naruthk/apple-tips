@@ -1,4 +1,7 @@
-import React, { Fragment, FC, useState } from "react";
+import React, { FC, useState } from "react";
+
+import { CgClose } from "react-icons/cg";
+import { StyledFilterFormContainer } from "./style";
 
 interface FilterProps {
   items: Array<string>;
@@ -10,7 +13,7 @@ const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
   const [checkedValues, setCheckedValues] = useState<string[]>([]);
 
   const selectableFilters = items.map(item => (
-    <Fragment key={item}>
+    <div key={item}>
       <input
         type="checkbox"
         id={item}
@@ -32,22 +35,20 @@ const Filter: FC<FilterProps> = ({ items, onSelect, onReset }) => {
         }}
       />
       <label htmlFor={item}>{item}</label>
-    </Fragment>
+    </div>
   ));
 
   return (
-    <form
+    <StyledFilterFormContainer
       onReset={e => {
         e.preventDefault();
         onReset(e);
         setCheckedValues([]);
       }}
     >
-      <ul>
-        <button type="reset">All</button>
-        {selectableFilters}
-      </ul>
-    </form>
+      {checkedValues.length > 0 && <button type="reset"><CgClose /> Filters</button>}
+      {selectableFilters}
+    </StyledFilterFormContainer>
   );
 };
 

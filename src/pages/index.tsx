@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { graphql } from "gatsby";
 
 import Container from "../components/Container";
-import Filter from "../components/Filter";
+import Filter from "../components/filter";
 import ArticlesListing from "../components/articlesListing";
 import MainLayout from "../layouts";
 

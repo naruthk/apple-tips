@@ -21,8 +21,18 @@ npm install
 gatsby develop
 ```
 
-### Adding a new category
+## Contributions
 
+**Apple Tips** is an open-sourced project, which means you are more than welcomed to submit a pull request and help advance this project even further!
+
+Simply create a new Markdown article and place the file within the appropriate folder. This must be inside the `./content` folder.
+
+To see how to format your Markdown file, check out published documents inside the `./content` folder as an example.
+
+## FAQ
+
+<details>
+<summary>I want to add a new category</summary>
 To add a new category (a `Collection` such as `iOS`, `macOS`), you need to do update two places:
 
 1. In `./src/constants.tsx`, add the new category to the list.
@@ -36,15 +46,7 @@ To add a new category (a `Collection` such as `iOS`, `macOS`), you need to do up
   }
 },
 ```
-
-
-## Contributions
-
-**Apple Tips** is an open-sourced project, which means you are more than welcomed to submit a pull request and help advance this project even further!
-
-Simply create a new Markdown article and place the file within the appropriate folder. This must be inside the `./content` folder.
-
-To see how to format your Markdown file, check out published documents inside the `./content` folder as an example.
+</details>
 
 ---
 
