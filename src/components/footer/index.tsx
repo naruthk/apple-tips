@@ -11,7 +11,7 @@ import {
   StyledLegalSection
 } from "./style";
 
-const CONTRIBUTIONS_PAGE_URL = "/contributions";
+const CONTRIBUTIONS_PAGE_URL = "https://github.com/naruthk/apple-tips/blob/main/CONTRIBUTE.md";
 
 const Footer: FC = () => {
   const queriedData = useStaticQuery(graphql`
@@ -40,7 +40,14 @@ const Footer: FC = () => {
     <StyledFooter>
       <FooterInner>
         <CallToActionContainer>
-          <ContributionsLink to={CONTRIBUTIONS_PAGE_URL} title="Contribute">
+          <ContributionsLink
+            target="_blank"
+            rel="nofollow"
+            // @ts-ignore TODO: Resolve styled-component typescript error
+            as="a"
+            href={CONTRIBUTIONS_PAGE_URL}
+            title="Contribute"
+          >
             <p>{texts.applyForContributions}</p>
             <ActionLink>Contribute</ActionLink>
           </ContributionsLink>
