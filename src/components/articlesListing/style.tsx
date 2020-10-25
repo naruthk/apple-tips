@@ -24,6 +24,7 @@ const StyledListing = styled.ul`
 const StyledListItem = styled.li`
   list-style-type: none;
   display: flex;
+  width: 100vh;
 
   @media (min-width: ${getemsize(breakpoints.sm)}em) {
     width: 50%;
@@ -42,6 +43,7 @@ const StyledLinkContainer = styled(Link)`
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: ${radius.card}px;
+  width: 100%;
 
   :hover,
   :visited {

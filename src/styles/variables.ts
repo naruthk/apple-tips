@@ -70,7 +70,7 @@ export const dimensions = {
   },
   lineHeight: {
     tight: 1,
-    regular: 1.25,
+    regular: 1.45,
     heading: 1.2
   },
   containerPadding: 1.2

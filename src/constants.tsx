@@ -6,7 +6,8 @@ const CollectionCategories: { [char: string]: string } = {
   all: "All",
   ios: "iOS",
   ipados: "iPadOS",
-  macos: "macOS"
+  macos: "macOS",
+  watchos: "watchOS"
 };
 
 /**
@@ -15,7 +16,8 @@ const CollectionCategories: { [char: string]: string } = {
 const PUBLISHED_CATEGORIES = [
   CollectionCategories.ios,
   CollectionCategories.ipados,
-  CollectionCategories.macos
+  CollectionCategories.macos,
+  CollectionCategories.watchos
 ];
 
 export { PUBLISHED_CATEGORIES, CollectionCategories };

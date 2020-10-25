@@ -21,6 +21,23 @@ npm install
 gatsby develop
 ```
 
+### Adding a new category
+
+To add a new category (a `Collection` such as `iOS`, `macOS`), you need to do update two places:
+
+1. In `./src/constants.tsx`, add the new category to the list.
+2. In `./gatsby-config.js`, append to the list of plugins with the object of the following properties:
+```javascript
+{
+  resolve: 'gatsby-source-filesystem',
+  options: {
+    name: 'name-of-os-in-lower-case',
+    path: `${__dirname}/src/content/name-of-os-in-lower-case`
+  }
+},
+```
+
+
 ## Contributions
 
 **Apple Tips** is an open-sourced project, which means you are more than welcomed to submit a pull request and help advance this project even further!

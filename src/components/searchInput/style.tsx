@@ -18,13 +18,13 @@ const StyledSearchContainer = styled.div`
 `;
 
 const StyledSearchLabel = styled.label`
-  margin-left: 1rem;
+  margin: 0 1rem;
   color: ${colors.gray.light};
 `;
 
 const StyledSearchInput = styled.input`
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 0;
   outline: none;
   border-radius: ${radius.container}px;
   background-color: ${colors.gray.medium};
@@ -35,11 +35,6 @@ const StyledSearchInput = styled.input`
   :active,
   :hover {
     color: ${colors.white};
-  }
-
-  @media (min-width: ${getemsize(breakpoints.md)}em) {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
   }
 `;
 

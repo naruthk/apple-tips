@@ -29,8 +29,8 @@ const Post: FC<PostProps> = ({ postData, html, collection }) => {
     <StyledPostContainer>
       <StyledTitle>{title}</StyledTitle>
       <StyledGridContainer>
-        {/* @ts-ignore: Find way to resolve props and typescripts for styled-components */}
         <StyledPostText
+          /* @ts-ignore: Find way to resolve props and typescripts for styled-components */
           hasShortcuts={shortcuts}
           dangerouslySetInnerHTML={{ __html: html }}
         />

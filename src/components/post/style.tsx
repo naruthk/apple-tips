@@ -36,6 +36,10 @@ const StyledGridContainer = styled.div`
 const StyledPostText = styled.div`
   margin: 1rem 0;
   ${props => props.hasShortcuts && "padding-bottom: 1rem;"}
+
+  strong {
+    color: ${colors.white};
+  }
 `;
 
 const StyledMetaContainer = styled.section`

@@ -1,6 +1,7 @@
-import React, { useState, useMemo, FC, Fragment } from "react";
-import { Link, navigate } from "gatsby";
+import React, { useState, useMemo, FC } from "react";
+import { navigate } from "gatsby";
 import { FaSearch } from "react-icons/fa";
+import { CgCloseO } from "react-icons/cg";
 import Fuse from "fuse.js";
 import { useCombobox } from "downshift";
 
@@ -56,6 +57,7 @@ const SearchInput: FC = () => {
 
   const {
     isOpen,
+    reset,
     getLabelProps,
     getMenuProps,
     getInputProps,
@@ -83,6 +85,11 @@ const SearchInput: FC = () => {
           autoFocus
           placeholder={searchPlaceHolderText}
         />
+        {isOpen && (
+          <StyledSearchLabel {...getLabelProps()}>
+            <CgCloseO onClick={reset} />
+          </StyledSearchLabel>
+        )}
       </StyledSearchContainer>
       <StyledSearchResultsListing {...getMenuProps()} showBottomBorder={isOpen}>
         {isOpen &&
